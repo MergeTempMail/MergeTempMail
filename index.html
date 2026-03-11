@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Temp Mail | Premium Edition</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --bg-main: #0f172a;
+            --card-bg: #1e293b;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --premium: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body { background-color: var(--bg-main); color: var(--text-main); height: 100vh; overflow-y: auto; overflow-x: hidden; }
+
+        /* SPLASH SCREEN ANIMATION */
+        #splash-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: var(--bg-main); z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .splash-logo {
+            font-size: 70px; margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--success));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 800; animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .splash-text { font-size: 24px; font-weight: 700; color: #fff; letter-spacing: 2px; animation: slideUp 1s ease 0.3s both; }
+        .splash-text span { color: var(--primary); }
+        
+        .loader-bar {
+            width: 0px; height: 4px; background: var(--primary); margin-top: 20px; border-radius: 2px;
+            animation: loadLine 2s ease-in-out forwards;
+        }
+
+        @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        @keyframes slideUp { 0% { transform: translateY(20px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+        @keyframes loadLine { 0% { width: 0; opacity: 0.5; } 50% { opacity: 1; } 100% { width: 150px; opacity: 0; } }
+
+        /* POPUP STYLES */
+        .popup-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: rgba(0, 0, 0, 0.75); z-index: 10000;
+            display: none; justify-content: center; align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .popup-box {
+            background: var(--card-bg); padding: 30px 25px; border-radius: 16px;
+            max-width: 400px; width: 90%; text-align: center;
+            border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            animation: popIn 0.3s ease-out;
+        }
+        .popup-box h3 { color: var(--premium); margin-bottom: 15px; font-size: 22px; }
+        .popup-box p { color: var(--text-main); font-size: 14px; margin-bottom: 25px; line-height: 1.6; }
+        .popup-actions { display: flex; gap: 12px; justify-content: center; flex-direction: column; }
+        
+        .popup-btn {
+            padding: 12px 15px; border-radius: 8px; border: none; cursor: pointer;
+            font-weight: 600; font-size: 15px; transition: 0.2s; text-decoration: none;
+        }
+        .popup-direct { background: var(--primary); color: #fff; box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3); }
+        .popup-direct:hover { background: var(--primary-hover); transform: translateY(-2px); }
+        .popup-close { background: transparent; color: var(--text-sub); border: 1px solid rgba(255,255,255,0.2); }
+        .popup-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+        /* HEADER */
+        header { text-align: center; padding: 40px 20px 20px; background: linear-gradient(180deg, rgba(30,41,59,1) 0%, rgba(15,23,42,0) 100%); }
+        header h1 { font-size: 32px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+        header h1 span { color: var(--primary); }
+        header p { color: var(--text-sub); font-size: 15px; margin-top: 8px; }
+
+        /* SCREENS */
+        #home-screen { padding: 20px; max-width: 1100px; margin: 0 auto; display: none; }
+        #viewer-screen { display: none; height: 100vh; flex-direction: column; background: #fff; }
+
+        /* SECTION TITLES */
+        .section-title { font-size: 18px; font-weight: 600; margin: 35px 0 15px; border-left: 4px solid var(--primary); padding-left: 12px; }
+
+        /* GRID FOR CARDS */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+
+        /* CARDS */
+        .card {
+            background: var(--card-bg); border-radius: 16px; padding: 25px 20px; text-align: center;
+            cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: relative; overflow: hidden;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2); }
+        
+        .premium-card { border-color: rgba(245, 158, 11, 0.5); }
+        .premium-card:hover { border-color: var(--premium); box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2); }
+
+        .card-icon { font-size: 40px; margin-bottom: 15px; }
+        .card-title { font-size: 19px; font-weight: 600; margin-bottom: 8px; }
+        .card-desc { font-size: 13px; color: var(--text-sub); line-height: 1.4; }
+
+        .badge { position: absolute; top: 12px; right: -30px; color: #fff; font-size: 10px; padding: 4px 35px; transform: rotate(45deg); font-weight: bold; letter-spacing: 1px; }
+        .badge-premium { background: var(--premium); color: #000; }
+
+        /* VIEWER TOP BAR */
+        .viewer-header { background: var(--card-bg); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; color: #fff; flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 10; }
+        .back-btn { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-weight: 500; transition: 0.2s; }
+        .back-btn:hover { background: rgba(255,255,255,0.2); }
+        .viewer-title { font-size: 16px; font-weight: 600; flex-grow: 1; text-align: center; }
+        
+        .action-buttons { display: flex; gap: 10px; }
+        .direct-link-btn { background: var(--primary); color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 8px; font-weight: 600; font-size: 13px; text-align: center; transition: 0.3s; cursor: pointer; border: none; }
+        .direct-link-btn:hover { background: var(--primary-hover); }
+        .success-btn { background: var(--success); }
+        .success-btn:hover { background: #059669; }
+
+        /* IFRAME */
+        iframe { width: 100%; height: 100%; border: none; flex-grow: 1; background: #fff; }
+
+    </style>
+</head>
+<body>
+
+    <div id="splash-screen">
+        <div class="splash-logo">M</div>
+        <div class="splash-text">MERGE <span>MAIL</span></div>
+        <div class="loader-bar"></div>
+    </div>
+
+    <div id="info-popup" class="popup-overlay">
+        <div class="popup-box">
+            <h3>⚠️ Important Notice</h3>
+            <p>If the website fails to load inside the app or you encounter a CAPTCHA error, please click the <b>Direct Link</b> button below to open it securely.</p>
+            <div class="popup-actions">
+                <a href="#" id="popup-direct-link" target="_blank" class="popup-btn popup-direct" onclick="closePopup()">🔗 Open Direct Link</a>
+                <button class="popup-btn popup-close" onclick="closePopup()">Continue in App</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="home-screen">
+        <header>
+            <h1>Merge <span>Temp Mail</span></h1>
+            <p>Your All-in-One Temporary Email Dashboard</p>
+        </header>
+
+        <h2 class="section-title">🌐 Temp Mail Providers</h2>
+        <div class="grid-container">
+            
+            <div class="card premium-card" onclick="openWeb('https://mail.tm/', 'Mail.tm')">
+                <div class="badge badge-premium">PREMIUM</div>
+                <div class="card-icon">⚡</div>
+                <div class="card-title">Mail.tm</div>
+                <div class="card-desc">Fast, modern, and reliable premium temporary email service.</div>
+            </div>
+
+            <div class="card premium-card" onclick="openWeb('https://toolpix.pythonanywhere.com/temp-mail', 'ToolPix Mail')">
+                <div class="badge badge-premium">PREMIUM</div>
+                <div class="card-icon">🛠️</div>
+                <div class="card-title">ToolPix Mail</div>
+                <div class="card-desc">Exclusive premium temporary email powered by ToolPix.</div>
+            </div>
+
+            <div class="card" onclick="openWeb('https://temp-inbox.me/', 'Temp Inbox')">
+                <div class="card-icon">📥</div>
+                <div class="card-title">Temp Inbox</div>
+                <div class="card-desc">Reliable and simple temporary inbox for fast email reception.</div>
+            </div>
+
+            <div class="card" onclick="openWeb('https://mailwave.dev/', 'MailWave')">
+                <div class="card-icon">🌊</div>
+                <div class="card-title">MailWave</div>
+                <div class="card-desc">Modern and fast temporary email service for seamless testing.</div>
+            </div>
+
+            <div class="card" onclick="openWeb('https://www.emailnator.com/', 'Emailnator')">
+                <div class="card-icon">📬</div>
+                <div class="card-title">Emailnator</div>
+                <div class="card-desc">Known for providing temporary Gmail addresses.</div>
+            </div>
+
+            <div class="card" onclick="openWeb('https://temp-mail.io/en', 'Temp Mail IO')">
+                <div class="card-icon">⏱️</div>
+                <div class="card-title">Temp Mail IO</div>
+                <div class="card-desc">Clean interface with multiple domain options available.</div>
+            </div>
+
+            <div class="card" onclick="openWeb('https://tempmail100.com/', 'TempMail100')">
+                <div class="card-icon">💯</div>
+                <div class="card-title">TempMail100</div>
+                <div class="card-desc">Quick, secure, and 100% free temporary email generator.</div>
+            </div>
+            
+            <div class="card" onclick="openWeb('https://tempmailo.com/', 'TempMailo')">
+                <div class="card-icon">📨</div>
+                <div class="card-title">TempMailo</div>
+                <div class="card-desc">Clean, responsive, and easy to use temporary email service.</div>
+            </div>
+
+            <div class="card" onclick="openWeb('https://emailfake.com/channel3/', 'EmailFake')">
+                <div class="card-icon">📮</div>
+                <div class="card-title">EmailFake</div>
+                <div class="card-desc">Generate fake email addresses instantly with custom domain options.</div>
+            </div>
+
+            <div class="card" onclick="openWeb('https://www.guerrillamail.com/', 'Guerrilla Mail')">
+                <div class="card-icon">🎭</div>
+                <div class="card-title">Guerrilla Mail</div>
+                <div class="card-desc">Classic provider, easy to use and very reliable in-app.</div>
+            </div>
+
+            <div class="card" onclick="openWeb('https://www.mailticking.com/', 'MailTicking')">
+                <div class="card-icon">📫</div>
+                <div class="card-title">MailTicking</div>
+                <div class="card-desc">Your custom provided link. Opens in viewer.</div>
+            </div>
+
+            <div class="card" onclick="openWeb('https://smailpro.com/temporary-email', 'Smailpro')">
+                <div class="card-icon">📩</div>
+                <div class="card-title">Smailpro</div>
+                <div class="card-desc">Advanced temporary email with Gmail options and high reliability.</div>
+            </div>
+
+            <div class="card" onclick="openWeb('https://tempail.com/', 'Tempail')">
+                <div class="card-icon">⏳</div>
+                <div class="card-title">Tempail</div>
+                <div class="card-desc">Simple, fast, and generates temporary emails instantly.</div>
+            </div>
+
+            <div class="card" onclick="openWeb('https://www.emailondeck.com/', 'EmailOnDeck')">
+                <div class="card-icon">🚢</div>
+                <div class="card-title">EmailOnDeck</div>
+                <div class="card-desc">Solve CAPTCHA, then click 'Go to Inbox' in the top bar.</div>
+            </div>
+
+            <div class="card" onclick="openWeb('https://temp-mail.org/en/', 'Temp Mail Org')">
+                <div class="card-icon">☁️</div>
+                <div class="card-title">Temp-Mail.org</div>
+                <div class="card-desc">Strict security provider. Use Direct Link if it blocks loading.</div>
+            </div>
+
+            <div class="card" onclick="openWeb('https://internxt.com/temporary-email', 'Internxt Mail')">
+                <div class="card-icon">🔒</div>
+                <div class="card-title">Internxt Mail</div>
+                <div class="card-desc">Strict Security: Use Direct Link Button to access inbox.</div>
+            </div>
+
+        </div>
+        <div style="text-align: center; margin-top: 40px; padding-bottom: 20px; color: #475569; font-size: 12px;">App Version 7.2 • Final Edition</div>
+    </div>
+
+    <div id="viewer-screen">
+        <div class="viewer-header">
+            <button class="back-btn" onclick="goHome()">⬅ Back</button>
+            <div class="viewer-title" id="viewer-title">Site Name</div>
+            <div class="action-buttons">
+                <button id="eod-inbox-btn" class="direct-link-btn success-btn" style="display: none;" onclick="loadEODInbox()">➡️ Go to Inbox</button>
+                
+                <a href="#" id="direct-open-btn" target="_blank" class="direct-link-btn">🔗 Direct Link</a>
+            </div>
+        </div>
+
+        <iframe id="web-frame" src=""></iframe>
+    </div>
+
+    <script>
+        // Splash Screen Logic
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const splash = document.getElementById('splash-screen');
+                const home = document.getElementById('home-screen');
+                
+                splash.style.opacity = '0';
+                
+                setTimeout(function() {
+                    splash.style.display = 'none';
+                    home.style.display = 'block';
+                }, 500);
+            }, 2500); 
+        });
+
+        // App Logic Variables
+        const homeScreen = document.getElementById('home-screen');
+        const viewerScreen = document.getElementById('viewer-screen');
+        const webFrame = document.getElementById('web-frame');
+        const viewerTitle = document.getElementById('viewer-title');
+        const directOpenBtn = document.getElementById('direct-open-btn');
+        const eodInboxBtn = document.getElementById('eod-inbox-btn');
+        const infoPopup = document.getElementById('info-popup');
+        const popupDirectLink = document.getElementById('popup-direct-link');
+        
+        let popupTimeout; 
+
+        function goHome() {
+            viewerScreen.style.display = 'none';
+            homeScreen.style.display = 'block';
+            webFrame.src = ""; 
+            
+            // Back aane par timer cancel
+            clearTimeout(popupTimeout);
+            infoPopup.style.display = 'none';
+        }
+
+        function openWeb(url, name) {
+            homeScreen.style.display = 'none';
+            viewerScreen.style.display = 'flex';
+            
+            viewerTitle.innerText = name;
+            webFrame.src = url;
+            
+            // Set Direct links
+            directOpenBtn.href = url; 
+            popupDirectLink.href = url;
+
+            // 3 Second baad Popup dikhana
+            clearTimeout(popupTimeout);
+            popupTimeout = setTimeout(function() {
+                infoPopup.style.display = 'flex';
+            }, 3000); 
+
+            // Special EmailOnDeck Button
+            if (name === 'EmailOnDeck') {
+                eodInboxBtn.style.display = 'inline-block';
+            } else {
+                eodInboxBtn.style.display = 'none';
+            }
+        }
+
+        function closePopup() {
+            infoPopup.style.display = 'none';
+        }
+
+        function loadEODInbox() {
+            webFrame.src = "https://www.emailondeck.com/eod.php";
+            eodInboxBtn.style.display = 'none'; 
+        }
+    </script>
+</body>
+</html>
