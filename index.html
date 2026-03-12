@@ -28,7 +28,8 @@
             --text-sub: #94a3b8;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        /* 🛡️ SECURITY: Text selection band karne ke liye */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; user-select: none; -webkit-user-select: none; }
         
         body { background-color: var(--bg-main); color: var(--text-main); height: 100vh; overflow-y: auto; overflow-x: hidden; }
 
@@ -85,7 +86,7 @@
         .popup-close { background: transparent; color: var(--text-sub); border: 1px solid rgba(255,255,255,0.2); }
         .popup-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
-        /* 🚀 AD WRAPPER (Anti-White Space Magic) */
+        /* AD WRAPPER (Anti-White Space Magic) */
         .ad-wrapper {
             width: 320px;
             height: 50px;
@@ -177,7 +178,7 @@
 
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
     <div id="splash-screen">
         <div class="splash-logo">M</div>
@@ -216,6 +217,21 @@
             <h1>Merge <span>Temp Mail</span></h1>
             <p>Your All-in-One Temporary Email Dashboard</p>
         </header>
+
+        <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin-bottom: 25px; margin-top: 10px;">
+            <div class="ad-wrapper">
+                <script>
+                    atOptions = {
+                        'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+            </div>
+        </div>
 
         <h2 class="section-title">🌐 Temp Mail Providers</h2>
         <div class="grid-container">
@@ -338,7 +354,7 @@
             </div>
 
         </div>
-        <div style="text-align: center; margin-top: 40px; color: #475569; font-size: 12px;">App Version 9.8 • 2x Viewer Ads Edition</div>
+        <div style="text-align: center; margin-top: 40px; color: #475569; font-size: 12px;">App Version 10.0 • Max Security Edition</div>
     </div>
 
     <div id="viewer-screen">
@@ -386,19 +402,50 @@
     </div>
 
     <script>
-        // Bulletproof Splash Screen Logic
+        // 🛡️ SECURITY MAGIC: Domain Lock (Koi chura kar dusri site pe nahi chala payega)
         document.addEventListener('DOMContentLoaded', function() {
-            // Agar pehle se '#viewer' URL mein hai, toh usko hatao
+            const myDomain = "mergetempmail.qzz.io";
+            const currentDomain = window.location.hostname;
+            
+            // Check agar domain match nahi ho raha (aur localhost/vercel bhi nahi hai)
+            if(currentDomain !== myDomain && currentDomain !== "localhost" && !currentDomain.includes("vercel.app") && currentDomain !== "") {
+                // Chor ki site se wapas asli site par fek do!
+                window.location.href = "https://" + myDomain;
+            }
+        });
+
+        // 🛡️ SECURITY MAGIC: Keyboard Shortcuts Block (F12, Ctrl+U, Ctrl+Shift+I)
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123) { return false; } // F12
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } // Ctrl+Shift+I
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; } // Ctrl+Shift+C
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; } // Ctrl+Shift+J
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } // Ctrl+U
+        }
+
+        // Bulletproof Splash Screen & Auto-Restore Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const splash = document.getElementById('splash-screen');
+            const home = document.getElementById('home-screen');
+            const viewer = document.getElementById('viewer-screen');
+
+            // Restore last opened mail if page refreshed/resized
             if(window.location.hash === '#viewer') {
-                history.replaceState(null, '', window.location.pathname);
+                let lastUrl = localStorage.getItem('lastUrl');
+                let lastName = localStorage.getItem('lastName');
+                
+                if(lastUrl && lastName) {
+                    splash.style.display = 'none'; 
+                    openWeb(lastUrl, lastName); 
+                    return; 
+                } else {
+                    history.replaceState(null, '', window.location.pathname);
+                }
             }
 
+            // Normal Splash Screen
             setTimeout(function() {
-                const splash = document.getElementById('splash-screen');
-                const home = document.getElementById('home-screen');
-                
                 splash.style.opacity = '0';
-                
                 setTimeout(function() {
                     splash.style.display = 'none';
                     home.style.display = 'block';
@@ -425,18 +472,22 @@
             webFrame.src = ""; 
             clearTimeout(popupTimeout);
             infoPopup.style.display = 'none';
+            localStorage.removeItem('lastUrl');
+            localStorage.removeItem('lastName');
         }
 
-        // Jab user Upar wala "⬅ Back" button dabaye
         function goHome() {
             if (window.location.hash === '#viewer') {
-                history.back(); // Yeh phone ke back button jaisa kaam karega
+                history.back(); 
             } else {
                 closeViewerUI();
             }
         }
 
         function openWeb(url, name) {
+            localStorage.setItem('lastUrl', url);
+            localStorage.setItem('lastName', name);
+
             homeScreen.style.display = 'none';
             viewerScreen.style.display = 'flex';
             
@@ -457,8 +508,9 @@
                 eodInboxBtn.style.display = 'none';
             }
 
-            // MAGIC TRICK: Phone ke dimaag (history) mein ek naya page daal do
-            history.pushState({ screen: 'viewer' }, '', '#viewer');
+            if (window.location.hash !== '#viewer') {
+                history.pushState({ screen: 'viewer' }, '', '#viewer');
+            }
         }
 
         function closePopup() {
@@ -470,7 +522,6 @@
             eodInboxBtn.style.display = 'none'; 
         }
 
-        // MAGIC TRICK 2: Jab user Phone ka Back Button dabaye
         window.addEventListener('popstate', function(event) {
             if (window.location.hash !== '#viewer') {
                 closeViewerUI();
