@@ -6,13 +6,10 @@
     
     <title>Merge Temp Mail | Free Premium Temporary Email Generator</title>
     <meta name="description" content="Generate free premium temporary emails instantly. Use Merge Temp Mail to protect your primary inbox from spam, bypass CAPTCHAs, and access top temp mail providers all in one place.">
-    <meta name="keywords" content="temp mail, temporary email, disposable email, fake email generator, trash mail, 10 minute mail, free temp mail, premium temp mail, merge temp mail, emailnator, smailpro, boomlify">
+    <meta name="keywords" content="temp mail, temporary email, disposable email, fake email generator, trash mail, 10 minute mail, free temp mail, premium temp mail, merge temp mail, emailnator, smailpro, boomlify, nullsto">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Merge Mail">
 
-    <meta property="og:title" content="Merge Temp Mail | Premium Disposable Emails">
-    <meta property="og:description" content="Protect your inbox from spam. Access 15+ premium temporary email providers in one single app.">
-    <meta property="og:type" content="website">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
@@ -28,12 +25,12 @@
             --text-sub: #94a3b8;
         }
 
-        /* 🛡️ SECURITY: Text selection band karne ke liye */
+        /* 🛡️ SECURITY: Text Selection Block */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; user-select: none; -webkit-user-select: none; }
         
         body { background-color: var(--bg-main); color: var(--text-main); height: 100vh; overflow-y: auto; overflow-x: hidden; }
 
-        /* SPLASH SCREEN ANIMATION */
+        /* SPLASH SCREEN */
         #splash-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: var(--bg-main); z-index: 999999;
@@ -113,7 +110,6 @@
             box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
         }
 
-        /* IN-GRID AD CONTAINER */
         .grid-ad { 
             grid-column: 1 / -1; 
             display: flex; 
@@ -131,20 +127,15 @@
         #home-screen { padding: 20px; max-width: 1100px; margin: 0 auto; display: none; padding-bottom: 80px; } 
         #viewer-screen { display: none; height: calc(100vh - 60px); flex-direction: column; background: #fff; }
 
-        /* SECTION TITLES */
         .section-title { font-size: 18px; font-weight: 600; margin: 25px 0 15px; border-left: 4px solid var(--primary); padding-left: 12px; }
-
-        /* GRID FOR CARDS */
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
 
-        /* CARDS */
         .card {
             background: var(--card-bg); border-radius: 16px; padding: 25px 20px; text-align: center;
             cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.05);
             box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: relative; overflow: hidden;
         }
         .card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2); }
-        
         .premium-card { border-color: rgba(245, 158, 11, 0.5); }
         .premium-card:hover { border-color: var(--premium); box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2); }
 
@@ -155,13 +146,11 @@
         .badge { position: absolute; top: 12px; right: -30px; color: #fff; font-size: 10px; padding: 4px 35px; transform: rotate(45deg); font-weight: bold; letter-spacing: 1px; }
         .badge-premium { background: var(--premium); color: #000; }
 
-        /* HEADER */
         header { text-align: center; padding: 20px 20px; background: linear-gradient(180deg, rgba(30,41,59,1) 0%, rgba(15,23,42,0) 100%); }
         header h1 { font-size: 32px; font-weight: 700; color: #fff; letter-spacing: 1px; }
         header h1 span { color: var(--primary); }
         header p { color: var(--text-sub); font-size: 15px; margin-top: 8px; }
 
-        /* VIEWER TOP BAR */
         .viewer-header { background: var(--card-bg); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; color: #fff; flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 10; }
         .back-btn { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-weight: 500; transition: 0.2s; }
         .back-btn:hover { background: rgba(255,255,255,0.2); }
@@ -173,7 +162,6 @@
         .success-btn { background: var(--success); }
         .success-btn:hover { background: #059669; }
 
-        /* IFRAME */
         iframe { width: 100%; height: 100%; border: none; flex-grow: 1; background: #fff; }
 
     </style>
@@ -241,6 +229,13 @@
                 <div class="card-icon">⚡</div>
                 <div class="card-title">Mail.tm</div>
                 <div class="card-desc">Fast, modern, and reliable premium temporary email service.</div>
+            </div>
+
+            <div class="card premium-card" onclick="openWeb('https://nullsto.edu.pl/', 'Nullsto')">
+                <div class="badge badge-premium">PREMIUM</div>
+                <div class="card-icon">🎓</div>
+                <div class="card-title">Nullsto</div>
+                <div class="card-desc">Exclusive and secure premium temporary email service.</div>
             </div>
 
             <div class="card premium-card" onclick="openWeb('https://temp-emails.net/en', 'Temp-Emails')">
@@ -354,7 +349,7 @@
             </div>
 
         </div>
-        <div style="text-align: center; margin-top: 40px; color: #475569; font-size: 12px;">App Version 10.0 • Max Security Edition</div>
+        <div style="text-align: center; margin-top: 40px; color: #475569; font-size: 12px;">App Version 10.3 • Pure Web Edition (Nullsto Added)</div>
     </div>
 
     <div id="viewer-screen">
@@ -402,34 +397,29 @@
     </div>
 
     <script>
-        // 🛡️ SECURITY MAGIC: Domain Lock (Koi chura kar dusri site pe nahi chala payega)
+        // 🛡️ SECURITY MAGIC: Domain Lock
         document.addEventListener('DOMContentLoaded', function() {
             const myDomain = "mergetempmail.qzz.io";
             const currentDomain = window.location.hostname;
-            
-            // Check agar domain match nahi ho raha (aur localhost/vercel bhi nahi hai)
             if(currentDomain !== myDomain && currentDomain !== "localhost" && !currentDomain.includes("vercel.app") && currentDomain !== "") {
-                // Chor ki site se wapas asli site par fek do!
                 window.location.href = "https://" + myDomain;
             }
         });
 
-        // 🛡️ SECURITY MAGIC: Keyboard Shortcuts Block (F12, Ctrl+U, Ctrl+Shift+I)
+        // 🛡️ SECURITY MAGIC: Keyboard Shortcuts Block
         document.onkeydown = function(e) {
-            if(e.keyCode == 123) { return false; } // F12
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } // Ctrl+Shift+I
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; } // Ctrl+Shift+C
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; } // Ctrl+Shift+J
-            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } // Ctrl+U
+            if(e.keyCode == 123) { return false; } 
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } 
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; } 
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; } 
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } 
         }
 
-        // Bulletproof Splash Screen & Auto-Restore Logic
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById('splash-screen');
             const home = document.getElementById('home-screen');
             const viewer = document.getElementById('viewer-screen');
 
-            // Restore last opened mail if page refreshed/resized
             if(window.location.hash === '#viewer') {
                 let lastUrl = localStorage.getItem('lastUrl');
                 let lastName = localStorage.getItem('lastName');
@@ -443,7 +433,6 @@
                 }
             }
 
-            // Normal Splash Screen
             setTimeout(function() {
                 splash.style.opacity = '0';
                 setTimeout(function() {
@@ -453,7 +442,6 @@
             }, 2000); 
         });
 
-        // App Logic Variables
         const homeScreen = document.getElementById('home-screen');
         const viewerScreen = document.getElementById('viewer-screen');
         const webFrame = document.getElementById('web-frame');
@@ -465,7 +453,6 @@
         
         let popupTimeout; 
 
-        // Helper: Sirf Screen ko chupane ka code
         function closeViewerUI() {
             viewerScreen.style.display = 'none';
             homeScreen.style.display = 'block';
