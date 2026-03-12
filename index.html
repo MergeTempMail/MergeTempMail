@@ -85,6 +85,17 @@
         .popup-close { background: transparent; color: var(--text-sub); border: 1px solid rgba(255,255,255,0.2); }
         .popup-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
+        /* 🚀 AD WRAPPER (Anti-White Space Magic) */
+        .ad-wrapper {
+            width: 320px;
+            height: 50px;
+            margin: 0 auto;
+            overflow: hidden; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         /* STICKY BOTTOM AD BANNER */
         .sticky-bottom-ad {
             position: fixed; 
@@ -175,16 +186,18 @@
     </div>
 
     <div class="sticky-bottom-ad">
-        <script>
-            atOptions = {
-                'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
-                'format' : 'iframe',
-                'height' : 50,
-                'width' : 320,
-                'params' : {}
-            };
-        </script>
-        <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+        <div class="ad-wrapper">
+            <script>
+                atOptions = {
+                    'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+        </div>
     </div>
 
     <div id="info-popup" class="popup-overlay">
@@ -325,7 +338,7 @@
             </div>
 
         </div>
-        <div style="text-align: center; margin-top: 40px; color: #475569; font-size: 12px;">App Version 9.6 • Social Bar Edition</div>
+        <div style="text-align: center; margin-top: 40px; color: #475569; font-size: 12px;">App Version 9.8 • 2x Viewer Ads Edition</div>
     </div>
 
     <div id="viewer-screen">
@@ -340,19 +353,36 @@
         </div>
 
         <div style="background: var(--bg-main); width: 100%; display: flex; justify-content: center; align-items: center; padding: 5px 0; min-height: 60px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <script>
-                atOptions = {
-                    'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
-            </script>
-            <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+            <div class="ad-wrapper">
+                <script>
+                    atOptions = {
+                        'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+            </div>
         </div>
 
         <iframe id="web-frame" src=""></iframe>
+
+        <div style="background: var(--bg-main); width: 100%; display: flex; justify-content: center; align-items: center; padding: 5px 0; min-height: 60px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <div class="ad-wrapper">
+                <script>
+                    atOptions = {
+                        'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+            </div>
+        </div>
     </div>
 
     <script>
