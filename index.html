@@ -332,7 +332,7 @@
             </div>
 
         </div>
-        <div style="text-align: center; margin-top: 40px; color: #475569; font-size: 12px;">App Version 9.3 • Max Monetization Edition</div>
+        <div style="text-align: center; margin-top: 40px; color: #475569; font-size: 12px;">App Version 9.4 • Mobile Back Button Edition</div>
     </div>
 
     <div id="viewer-screen">
@@ -365,6 +365,11 @@
     <script>
         // Bulletproof Splash Screen Logic
         document.addEventListener('DOMContentLoaded', function() {
+            // Agar pehle se '#viewer' URL mein hai, toh usko hatao
+            if(window.location.hash === '#viewer') {
+                history.replaceState(null, '', window.location.pathname);
+            }
+
             setTimeout(function() {
                 const splash = document.getElementById('splash-screen');
                 const home = document.getElementById('home-screen');
@@ -390,13 +395,22 @@
         
         let popupTimeout; 
 
-        function goHome() {
+        // Helper: Sirf Screen ko chupane ka code
+        function closeViewerUI() {
             viewerScreen.style.display = 'none';
             homeScreen.style.display = 'block';
             webFrame.src = ""; 
-            
             clearTimeout(popupTimeout);
             infoPopup.style.display = 'none';
+        }
+
+        // Jab user Upar wala "⬅ Back" button dabaye
+        function goHome() {
+            if (window.location.hash === '#viewer') {
+                history.back(); // Yeh phone ke back button jaisa kaam karega
+            } else {
+                closeViewerUI();
+            }
         }
 
         function openWeb(url, name) {
@@ -419,6 +433,9 @@
             } else {
                 eodInboxBtn.style.display = 'none';
             }
+
+            // 🚀 MAGIC TRICK: Phone ke dimaag (history) mein ek naya page daal do
+            history.pushState({ screen: 'viewer' }, '', '#viewer');
         }
 
         function closePopup() {
@@ -429,6 +446,13 @@
             webFrame.src = "https://www.emailondeck.com/eod.php";
             eodInboxBtn.style.display = 'none'; 
         }
+
+        // 🚀 MAGIC TRICK 2: Jab user Phone ka Back Button dabaye
+        window.addEventListener('popstate', function(event) {
+            if (window.location.hash !== '#viewer') {
+                closeViewerUI();
+            }
+        });
     </script>
 </body>
 </html>
