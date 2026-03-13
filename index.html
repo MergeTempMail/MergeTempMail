@@ -1,89 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Merge Temp Mail | Free Premium Temporary Email Generator</title>
-    <meta name="description" content="Generate free premium temporary emails instantly. Use Merge Temp Mail to protect your primary inbox from spam, bypass CAPTCHAs, and access top temp mail providers all in one place.">
-    <meta name="keywords" content="temp mail, temporary email, disposable email, fake email generator, trash mail, 10 minute mail, free temp mail, premium temp mail, merge temp mail, emailnator, smailpro, boomlify, nullsto, emailmux">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Merge Mail">
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merge Temp Mail | Free Premium Temporary Email Generator</title>
+  <meta name="description" content="Generate free premium temporary emails instantly. Use Merge Temp Mail to protect your primary inbox from spam, bypass CAPTCHAs, and access top temp mail providers all in one place.">
+  <meta name="keywords" content="temp mail, temporary email, disposable email, fake email generator, trash mail, 10 minute mail, free temp mail, premium temp mail, merge temp mail, emailnator, smailpro, boomlify, nullsto, emailmux">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Merge Mail">
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
 
         :root {
             --bg-main: #0f172a;
+            --bg-alt: #1a2a4a;
             --card-bg: #1e293b;
+            --card-hover: #2d3e52;
             --primary: #3b82f6;
             --primary-hover: #2563eb;
+            --primary-light: #60a5fa;
             --premium: #f59e0b;
             --success: #10b981;
             --danger: #ef4444;
             --text-main: #f8fafc;
             --text-sub: #94a3b8;
+            --border-color: rgba(255,255,255,0.08);
         }
 
-        /* 🛡️ SECURITY: Text Selection Block */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; user-select: none; -webkit-user-select: none; }
         
-        body { background-color: var(--bg-main); color: var(--text-main); height: 100vh; overflow-y: auto; overflow-x: hidden; }
+        html, body { height: 100%; background-color: var(--bg-main); color: var(--text-main); }
+        body { overflow-x: hidden; width: 100%; }
 
         /* SPLASH SCREEN */
         #splash-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background: var(--bg-main); z-index: 999999;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: linear-gradient(135deg, var(--bg-main) 0%, var(--bg-alt) 100%);
+            z-index: 999999; display: flex; flex-direction: column; justify-content: center; align-items: center;
             transition: opacity 0.5s ease;
         }
 
         .splash-logo {
-            font-size: 70px; margin-bottom: 10px;
-            background: linear-gradient(135deg, var(--primary), var(--success));
+            font-size: 80px; margin-bottom: 10px; font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-light), var(--premium), var(--primary));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-weight: 800; animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .splash-text { font-size: 24px; font-weight: 700; color: #fff; letter-spacing: 2px; animation: slideUp 1s ease 0.3s both; }
-        .splash-text span { color: var(--primary); }
+        .splash-text { font-size: 28px; font-weight: 700; color: #fff; letter-spacing: 3px; animation: slideUp 1s ease 0.3s both; }
+        .splash-text span { color: var(--primary-light); }
         
         .loader-bar {
-            width: 0px; height: 4px; background: var(--primary); margin-top: 20px; border-radius: 2px;
-            animation: loadLine 2s ease-in-out forwards;
+            width: 0px; height: 5px; background: linear-gradient(90deg, var(--primary), var(--premium));
+            margin-top: 25px; border-radius: 3px; box-shadow: 0 0 20px var(--primary);
+            animation: loadLine 2.5s ease-in-out forwards;
         }
 
-        @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        @keyframes slideUp { 0% { transform: translateY(20px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
-        @keyframes loadLine { 0% { width: 0; opacity: 0.5; } 50% { opacity: 1; } 100% { width: 150px; opacity: 0; } }
+        @keyframes popIn { 0% { transform: scale(0.3); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        @keyframes slideUp { 0% { transform: translateY(30px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+        @keyframes loadLine { 0% { width: 0; opacity: 0.5; } 50% { opacity: 1; } 100% { width: 180px; opacity: 0; } }
+        @keyframes fadeIn { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
 
         /* POPUP STYLES */
         .popup-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background: rgba(0, 0, 0, 0.75); z-index: 10000;
+            background: rgba(0, 0, 0, 0.8); z-index: 10000;
             display: none; justify-content: center; align-items: center;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
         }
         .popup-box {
-            background: var(--card-bg); padding: 30px 25px; border-radius: 16px;
-            max-width: 400px; width: 90%; text-align: center;
-            border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            background: var(--card-bg); padding: 35px 30px; border-radius: 20px;
+            max-width: 420px; width: 90%; text-align: center;
+            border: 1px solid var(--border-color); box-shadow: 0 20px 60px rgba(0,0,0,0.6);
             animation: popIn 0.3s ease-out;
         }
-        .popup-box h3 { color: var(--premium); margin-bottom: 15px; font-size: 22px; }
-        .popup-box p { color: var(--text-main); font-size: 14px; margin-bottom: 25px; line-height: 1.6; }
+        .popup-box h3 { color: var(--premium); margin-bottom: 15px; font-size: 24px; font-weight: 700; }
+        .popup-box p { color: var(--text-main); font-size: 14px; margin-bottom: 28px; line-height: 1.7; }
         .popup-actions { display: flex; gap: 12px; justify-content: center; flex-direction: column; }
         
         .popup-btn {
-            padding: 12px 15px; border-radius: 8px; border: none; cursor: pointer;
-            font-weight: 600; font-size: 15px; transition: 0.2s; text-decoration: none;
+            padding: 12px 18px; border-radius: 10px; border: none; cursor: pointer;
+            font-weight: 600; font-size: 15px; transition: 0.3s; text-decoration: none;
         }
-        .popup-direct { background: var(--primary); color: #fff; box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3); }
-        .popup-direct:hover { background: var(--primary-hover); transform: translateY(-2px); }
-        .popup-close { background: transparent; color: var(--text-sub); border: 1px solid rgba(255,255,255,0.2); }
-        .popup-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
+        .popup-direct { background: var(--primary); color: #fff; box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4); }
+        .popup-direct:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5); }
+        .popup-close { background: rgba(255,255,255,0.1); color: var(--text-sub); border: 1px solid var(--border-color); }
+        .popup-close:hover { background: rgba(255,255,255,0.15); color: #fff; }
 
-        /* AD WRAPPER (Anti-White Space Magic) */
+        /* MAIN LAYOUT FIX */
+        .main-wrapper {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+            background-color: var(--bg-main);
+        }
+
+        .side-ad-left {
+            width: 0;
+            background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg-main) 100%);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20px;
+            transition: width 0.3s ease;
+            overflow-y: auto;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .side-ad-right {
+            display: none;
+        }
+
+        @media (min-width: 1600px) {
+            .side-ad-left { width: 0; }
+        }
+
+        /* HOME PAGE HEADER AD */
+        .header-ad-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            background: rgba(59, 130, 246, 0.05);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        /* EMAIL SECTION AD */
+        .email-section-ad {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            background: rgba(245, 158, 11, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .content-center {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            padding-bottom: 80px;
+            width: 100%;
+        }
+
+        /* AD WRAPPERS */
         .ad-wrapper {
             width: 320px;
             height: 50px;
@@ -92,78 +158,671 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 5px;
         }
 
-        /* STICKY BOTTOM AD BANNER */
+        .side-ad-wrapper {
+            width: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* STICKY BOTTOM AD */
         .sticky-bottom-ad {
             position: fixed; 
             bottom: 0; 
             left: 0; 
             width: 100%; 
-            height: 60px;
-            background: var(--bg-main); 
+            height: 70px;
+            background: linear-gradient(180deg, var(--card-bg) 0%, var(--bg-main) 100%);
             display: flex; 
             justify-content: center; 
             align-items: center; 
             z-index: 99999; 
-            border-top: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+            border-top: 1px solid var(--border-color);
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.8);
         }
 
-        /* SCREENS */
-        #home-screen { padding: 20px; max-width: 1100px; margin: 0 auto; display: none; padding-bottom: 80px; } 
-        #viewer-screen { display: none; height: calc(100vh - 60px); flex-direction: column; background: #fff; }
+        /* HOME SCREEN */
+        #home-screen { 
+            padding: 0;
+            display: none;
+        }
 
-        .section-title { font-size: 18px; font-weight: 600; margin: 25px 0 15px; border-left: 4px solid var(--primary); padding-left: 12px; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .home-content {
+            padding: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* VIEWER FIX */
+        #viewer-screen { 
+            display: none; 
+            height: 100vh; /* Full Height */
+            width: 100%;
+            flex-direction: column; 
+            background: var(--bg-main); 
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2000;
+        }
+
+        #inbox-view {
+            display: none;
+            flex-direction: column;
+            height: 100vh;
+            background: var(--bg-main);
+            color: var(--text-main);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .inbox-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0;
+            max-width: 100%;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inbox-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-sub);
+        }
+
+        .inbox-empty-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .message-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 0;
+            padding: 16px 20px;
+            margin-bottom: 0;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .message-item:hover {
+            background: var(--card-hover);
+            border-color: var(--primary);
+            transform: none;
+        }
+
+        .message-info {
+            flex: 1;
+        }
+
+        .message-from {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .message-subject {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .message-time {
+            font-size: 12px;
+            color: var(--text-sub);
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+
+        .delete-msg-btn {
+            background: var(--danger);
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 10px;
+            transition: 0.3s;
+        }
+
+        .delete-msg-btn:hover {
+            background: #dc2626;
+        }
+
+        /* HEADER */
+        header { 
+            text-align: center; 
+            padding: 40px 30px; 
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        header h1 { 
+            font-size: 42px; 
+            font-weight: 800; 
+            color: #fff; 
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        header h1 span { 
+            background: linear-gradient(135deg, var(--primary-light), var(--premium));
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p { 
+            color: var(--text-sub); 
+            font-size: 16px; 
+            margin-bottom: 10px;
+        }
+
+        .header-subtitle {
+            color: var(--text-main);
+            font-size: 15px;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 8px 15px;
+            border-radius: 8px;
+            display: inline-block;
+            border: 1px solid var(--border-color);
+        }
+
+        /* TEMP MAIL SECTION */
+        .tempmail-section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.6s ease 0.3s both;
+        }
+
+        .tempmail-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tempmail-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tempmail-badge {
+            background: linear-gradient(135deg, var(--premium), #f97316);
+            color: #000;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tempmail-container {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(245, 158, 11, 0.1));
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .email-display {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .email-address {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-light);
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            flex: 1;
+        }
+
+        .copy-btn, .generate-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover, .generate-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .generate-btn {
+            background: var(--success);
+        }
+
+        .generate-btn:hover {
+            background: #059669;
+        }
+
+        .inbox-btn {
+            background: var(--premium);
+            color: #000;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .inbox-btn:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+        }
+
+        .tempmail-desc {
+            color: var(--text-sub);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* INLINE INBOX SECTION */
+        .inline-inbox-section {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.1));
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+
+        .inline-inbox-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .inline-inbox-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .inline-messages-list {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px 0;
+        }
+
+        .inline-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-sub);
+        }
+
+        .inline-empty-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        /* SERVICES SECTION */
+        .section-title { 
+            font-size: 20px; 
+            font-weight: 700; 
+            margin: 35px 0 20px; 
+            border-left: 4px solid var(--primary); 
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-desc {
+            color: var(--text-sub);
+            font-size: 14px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+        }
+
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); 
+            gap: 22px;
+            margin-bottom: 30px;
+        }
 
         .card {
-            background: var(--card-bg); border-radius: 16px; padding: 25px 20px; text-align: center;
-            cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: relative; overflow: hidden;
+            background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-hover) 100%);
+            border-radius: 16px; 
+            padding: 28px 22px; 
+            text-align: center;
+            cursor: pointer; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            position: relative; 
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2); }
-        .premium-card { border-color: rgba(245, 158, 11, 0.5); }
-        .premium-card:hover { border-color: var(--premium); box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2); }
 
-        .card-icon { font-size: 40px; margin-bottom: 15px; }
-        .card-title { font-size: 19px; font-weight: 600; margin-bottom: 8px; }
-        .card-desc { font-size: 13px; color: var(--text-sub); line-height: 1.4; }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
 
-        .badge { position: absolute; top: 12px; right: -30px; color: #fff; font-size: 10px; padding: 4px 35px; transform: rotate(45deg); font-weight: bold; letter-spacing: 1px; }
-        .badge-premium { background: var(--premium); color: #000; }
+        .card:hover::before {
+            left: 100%;
+        }
 
-        header { text-align: center; padding: 20px 20px; background: linear-gradient(180deg, rgba(30,41,59,1) 0%, rgba(15,23,42,0) 100%); }
-        header h1 { font-size: 32px; font-weight: 700; color: #fff; letter-spacing: 1px; }
-        header h1 span { color: var(--primary); }
-        header p { color: var(--text-sub); font-size: 15px; margin-top: 8px; }
+        .card:hover { 
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 16px 32px rgba(59, 130, 246, 0.3);
+        }
 
-        .viewer-header { background: var(--card-bg); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; color: #fff; flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 10; }
-        .back-btn { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-weight: 500; transition: 0.2s; }
-        .back-btn:hover { background: rgba(255,255,255,0.2); }
-        .viewer-title { font-size: 16px; font-weight: 600; flex-grow: 1; text-align: center; }
-        
-        .action-buttons { display: flex; gap: 10px; }
-        .direct-link-btn { background: var(--primary); color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 8px; font-weight: 600; font-size: 13px; text-align: center; transition: 0.3s; cursor: pointer; border: none; }
-        .direct-link-btn:hover { background: var(--primary-hover); }
-        .success-btn { background: var(--success); }
-        .success-btn:hover { background: #059669; }
+        .premium-card { 
+            border-color: rgba(245, 158, 11, 0.5);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, var(--card-hover) 100%);
+        }
 
-        iframe { width: 100%; height: 100%; border: none; flex-grow: 1; background: #fff; }
+        .premium-card:hover { 
+            border-color: var(--premium);
+            box-shadow: 0 16px 32px rgba(245, 158, 11, 0.25);
+        }
+
+        .card-icon { 
+            font-size: 45px; 
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .card-title { 
+            font-size: 18px; 
+            font-weight: 700; 
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .card-desc { 
+            font-size: 13px; 
+            color: var(--text-sub); 
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .card-badge {
+            font-size: 11px;
+            color: #000;
+            background: var(--premium);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* DESCRIPTION SECTION */
+        .description-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(245, 158, 11, 0.05));
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 35px 28px;
+            margin: 50px 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .description-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .description-section p {
+            color: var(--text-sub);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-icon {
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .feature-text {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        /* VIEWER */
+        .viewer-header { 
+            background: var(--card-bg); 
+            padding: 12px 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            color: #fff; 
+            flex-wrap: wrap; 
+            gap: 12px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+            z-index: 10;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .back-btn { 
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-light);
+            border: 1px solid var(--border-color);
+            padding: 8px 15px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover { 
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .viewer-title { 
+            font-size: 16px; 
+            font-weight: 700; 
+            flex-grow: 1; 
+            text-align: center;
+        }
+
+        .action-buttons { 
+            display: flex; 
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .direct-link-btn { 
+            background: var(--primary); 
+            color: #fff; 
+            text-decoration: none; 
+            padding: 8px 15px; 
+            border-radius: 8px; 
+            font-weight: 600; 
+            font-size: 13px; 
+            text-align: center; 
+            transition: 0.3s; 
+            cursor: pointer; 
+            border: none;
+        }
+
+        .direct-link-btn:hover { 
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .success-btn { 
+            background: var(--success); 
+        }
+
+        .success-btn:hover { 
+            background: #059669; 
+        }
+
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            flex-grow: 1; 
+            background: #fff;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 30px 25px;
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 13px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-copyright {
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--primary);
+            margin: 15px auto;
+            border-radius: 1px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header h1 { font-size: 28px; }
+            .grid-container { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+            .section-title { font-size: 18px; }
+            .home-content { padding: 20px; }
+            .tempmail-container { padding: 15px; }
+            .email-display { flex-direction: column; align-items: stretch; }
+            .email-address { text-align: center; }
+            .copy-btn, .generate-btn { width: 100%; }
+        }
 
     </style>
-</head>
-<body oncontextmenu="return false;">
-
-    <div id="splash-screen">
-        <div class="splash-logo">M</div>
-        <div class="splash-text">MERGE <span>MAIL</span></div>
-        <div class="loader-bar"></div>
-    </div>
-
-    <div class="sticky-bottom-ad">
-        <div class="ad-wrapper">
-            <script>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body oncontextmenu="return false;">
+  <div id="splash-screen">
+   <div class="splash-logo">
+    M
+   </div>
+   <div class="splash-text">
+    MERGE <span>MAIL</span>
+   </div>
+   <div class="loader-bar"></div>
+  </div>
+  <div class="sticky-bottom-ad">
+   <div class="ad-wrapper">
+    <script>
                 atOptions = {
                     'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
                     'format' : 'iframe',
@@ -172,30 +831,458 @@
                     'params' : {}
                 };
             </script>
-            <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
-        </div>
+    <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+   </div>
+  </div>
+  <div id="info-popup" class="popup-overlay">
+   <div class="popup-box">
+    <h3>⚠️ Important Notice</h3>
+    <p>If the website fails to load inside the app or you encounter a CAPTCHA error, please click the <b>Direct Link</b> button below.</p>
+    <div class="popup-actions">
+     <a href="#" id="popup-direct-link" target="_blank" class="popup-btn popup-direct" onclick="closePopup()">🔗 Open Direct Link</a> <button class="popup-btn popup-close" onclick="closePopup()">Continue in App</button>
     </div>
-
-    <div id="info-popup" class="popup-overlay">
-        <div class="popup-box">
-            <h3>⚠️ Important Notice</h3>
-            <p>If the website fails to load inside the app or you encounter a CAPTCHA error, please click the <b>Direct Link</b> button below to open it securely.</p>
-            <div class="popup-actions">
-                <a href="#" id="popup-direct-link" target="_blank" class="popup-btn popup-direct" onclick="closePopup()">🔗 Open Direct Link</a>
-                <button class="popup-btn popup-close" onclick="closePopup()">Continue in App</button>
-            </div>
-        </div>
+   </div>
+  </div>
+  <div class="main-wrapper" id="home-screen">
+   <div class="side-ad-left">
+    <div class="side-ad-wrapper">
+     <script>
+                    atOptions = {
+                        'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+                        'format' : 'iframe',
+                        'height' : 600,
+                        'width' : 250,
+                        'params' : {}
+                    };
+                </script>
+     <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
     </div>
-
-    <div id="home-screen">
-        <header>
-            <h1>Merge <span>Temp Mail</span></h1>
-            <p>Your All-in-One Temporary Email Dashboard</p>
-        </header>
-
-        <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin-bottom: 25px; margin-top: 10px;">
-            <div class="ad-wrapper">
-                <script>
+   </div>
+   <div class="content-center">
+    <header>
+     <h1>Merge <span>Temp Mail</span></h1>
+     <p>Your All-in-One Temporary Email Dashboard</p>
+     <div class="header-subtitle">
+      ✨ All Top Temp Mail Services in One Place!
+     </div>
+    </header>
+    <div class="header-ad-section">
+     <div class="ad-wrapper">
+      <script>
+       atOptions = {
+        'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+       };
+      </script>
+      <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+     </div>
+    </div>
+    <div class="home-content">
+     <div class="tempmail-section">
+      <div class="tempmail-header">
+       <h2>🚀 Your Temporary Email</h2><span class="tempmail-badge">Your Own</span>
+      </div>
+      <div class="tempmail-container">
+       <p class="tempmail-desc">This is your Personal Temporary Email. Copy it, generate a new one, or check your inbox!</p>
+       <div class="email-display">
+        <div class="email-address" id="current-email">
+         user@mergmail.com
+        </div><button class="copy-btn" onclick="copyEmail()">📋 Copy</button> <button class="generate-btn" onclick="generateNewEmail()">🔄 Generate New</button>
+       </div>
+      </div>
+      <div class="email-section-ad">
+       <div class="ad-wrapper">
+        <script>
+         atOptions = {
+          'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+         };
+        </script>
+        <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+       </div>
+      </div>
+     </div><div class="inline-inbox-section">
+      <div class="inline-inbox-header">
+       <h2>📬 Your Messages</h2>
+       <div style="display: flex; align-items: center; gap: 8px; color: var(--primary-light); font-size: 13px; font-weight: 600;"><span class="auto-refresh-spinner" style="display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(96, 165, 250, 0.3); border-top: 2px solid #60a5fa; border-radius: 50%; animation: spin 1s linear infinite;"></span> Auto-refreshing...
+       </div>
+      </div>
+      <style>
+       @keyframes spin { to { transform: rotate(360deg); } }
+      </style>
+      <div class="inline-messages-list" id="inline-messages-container">
+       <div class="inline-empty">
+        <div class="inline-empty-icon">
+         📭
+        </div>
+        <p>Koi message nahi hai abhi</p>
+        <p style="font-size: 12px; margin-top: 10px;">Email copy karo, messages automatic aa jayenge</p>
+       </div>
+      </div>
+     </div>
+     <h2 class="section-title">🌐 All Temp Mail Services</h2>
+     <p class="section-desc">Below are 20+ Popular Services. Click on any to get started!</p>
+     <div class="grid-container">
+      <div class="card premium-card" onclick="openWeb('https://tempgmailer.com/', 'Temp GMailer')">
+       <div class="card-icon">
+        💠
+       </div>
+       <div class="card-title">
+        Temp GMailer
+       </div>
+       <div class="card-desc">
+        Fast Gmail-style temporary addresses.
+       </div>
+       <div class="card-badge">
+        Premium
+       </div>
+      </div>
+      <div class="card premium-card" onclick="openWeb('https://mail.tm/', 'Mail.tm')">
+       <div class="card-icon">
+        ⚡
+       </div>
+       <div class="card-title">
+        Mail.tm
+       </div>
+       <div class="card-desc">
+        Fast, modern, reliable premium service.
+       </div>
+       <div class="card-badge">
+        Premium
+       </div>
+      </div>
+      <div class="card premium-card" onclick="openWeb('https://emailmux.com/en/temporary-gmail', 'EmailMux')">
+       <div class="card-icon">
+        📧
+       </div>
+       <div class="card-title">
+        EmailMux
+       </div>
+       <div class="card-desc">
+        Premium temporary Gmail addresses instantly.
+       </div>
+       <div class="card-badge">
+        Premium
+       </div>
+      </div>
+      <div class="card premium-card" onclick="openWeb('https://nullsto.edu.pl/', 'Nullsto')">
+       <div class="card-icon">
+        🎓
+       </div>
+       <div class="card-title">
+        Nullsto
+       </div>
+       <div class="card-desc">
+        Exclusive and secure premium service.
+       </div>
+       <div class="card-badge">
+        Premium
+       </div>
+      </div>
+      <div class="card premium-card" onclick="openWeb('https://temp-emails.net/en', 'Temp-Emails')">
+       <div class="card-icon">
+        🛡️
+       </div>
+       <div class="card-title">
+        Temp-Emails
+       </div>
+       <div class="card-desc">
+        Highly secure premium service.
+       </div>
+       <div class="card-badge">
+        Premium
+       </div>
+      </div>
+      <div class="card premium-card" onclick="openWeb('https://boomlify.com/', 'Boomlify')">
+       <div class="card-icon">
+        🚀
+       </div>
+       <div class="card-title">
+        Boomlify
+       </div>
+       <div class="card-desc">
+        Advanced with smart inbox preview.
+       </div>
+       <div class="card-badge">
+        Premium
+       </div>
+      </div>
+      <div class="card premium-card" onclick="openWeb('https://toolpix.pythonanywhere.com/temp-mail', 'ToolPix Mail')">
+       <div class="card-icon">
+        🛠️
+       </div>
+       <div class="card-title">
+        ToolPix Mail
+       </div>
+       <div class="card-desc">
+        Exclusive premium service by ToolPix.
+       </div>
+       <div class="card-badge">
+        Premium
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://temp-inbox.me/', 'Temp Inbox')">
+       <div class="card-icon">
+        📥
+       </div>
+       <div class="card-title">
+        Temp Inbox
+       </div>
+       <div class="card-desc">
+        Reliable and simple service.
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://mailwave.dev/', 'MailWave')">
+       <div class="card-icon">
+        🌊
+       </div>
+       <div class="card-title">
+        MailWave
+       </div>
+       <div class="card-desc">
+        Modern and fast emails.
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://www.emailnator.com/', 'Emailnator')">
+       <div class="card-icon">
+        📬
+       </div>
+       <div class="card-title">
+        Emailnator
+       </div>
+       <div class="card-desc">
+        Temporary Gmail addresses.
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://temp-mail.io/en', 'Temp Mail IO')">
+       <div class="card-icon">
+        ⏱️
+       </div>
+       <div class="card-title">
+        Temp Mail IO
+       </div>
+       <div class="card-desc">
+        Clean interface, multiple domains.
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://tempmail100.com/', 'TempMail100')">
+       <div class="card-icon">
+        💯
+       </div>
+       <div class="card-title">
+        TempMail100
+       </div>
+       <div class="card-desc">
+        Quick, secure, 100% free.
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://tempmailo.com/', 'TempMailo')">
+       <div class="card-icon">
+        📨
+       </div>
+       <div class="card-title">
+        TempMailo
+       </div>
+       <div class="card-desc">
+        Clean and easy to use.
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://emailfake.com/channel3/', 'EmailFake')">
+       <div class="card-icon">
+        📮
+       </div>
+       <div class="card-title">
+        EmailFake
+       </div>
+       <div class="card-desc">
+        Generate fake emails instantly.
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://www.guerrillamail.com/', 'Guerrilla Mail')">
+       <div class="card-icon">
+        🎭
+       </div>
+       <div class="card-title">
+        Guerrilla Mail
+       </div>
+       <div class="card-desc">
+        Classic, easy and reliable.
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://www.mailticking.com/', 'MailTicking')">
+       <div class="card-icon">
+        📫
+       </div>
+       <div class="card-title">
+        MailTicking
+       </div>
+       <div class="card-desc">
+        Custom links. Opens in viewer.
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://smailpro.com/temporary-email', 'Smailpro')">
+       <div class="card-icon">
+        📩
+       </div>
+       <div class="card-title">
+        Smailpro
+       </div>
+       <div class="card-desc">
+        Advanced with Gmail options.
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://tempail.com/', 'Tempail')">
+       <div class="card-icon">
+        ⏳
+       </div>
+       <div class="card-title">
+        Tempail
+       </div>
+       <div class="card-desc">
+        Simple, fast, instant emails.
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://www.emailondeck.com/', 'EmailOnDeck')">
+       <div class="card-icon">
+        🚢
+       </div>
+       <div class="card-title">
+        EmailOnDeck
+       </div>
+       <div class="card-desc">
+        Solve CAPTCHA then Go to Inbox.
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://temp-mail.org/en/', 'Temp Mail Org')">
+       <div class="card-icon">
+        ☁️
+       </div>
+       <div class="card-title">
+        Temp-Mail.org
+       </div>
+       <div class="card-desc">
+        Strict security provider.
+       </div>
+      </div>
+      <div class="card" onclick="openWeb('https://internxt.com/temporary-email', 'Internxt Mail')">
+       <div class="card-icon">
+        🔒
+       </div>
+       <div class="card-title">
+        Internxt Mail
+       </div>
+       <div class="card-desc">
+        Strict Security: Use Direct Link.
+       </div>
+      </div>
+     </div><div class="description-section">
+      <h2>📖 About Merge Temp Mail</h2>
+      <p><strong>Merge Temp Mail</strong> is your complete Temporary Email Dashboard that brings all popular services to one place. Protect your email privacy, avoid spam, and solve CAPTCHAs easily!</p>
+      <h3 style="margin-top: 25px; margin-bottom: 15px; font-size: 18px; color: var(--text-main);">✨ Key Features:</h3>
+      <div class="features-list">
+       <div class="feature-item">
+        <div class="feature-icon">
+         🛡️
+        </div>
+        <div class="feature-text"><strong>Privacy</strong> - Keep your email safe and private
+        </div>
+       </div>
+       <div class="feature-item">
+        <div class="feature-icon">
+         🚫
+        </div>
+        <div class="feature-text"><strong>Spam Block</strong> - Avoid unwanted emails
+        </div>
+       </div>
+       <div class="feature-item">
+        <div class="feature-icon">
+         ⚡
+        </div>
+        <div class="feature-text"><strong>Instant</strong> - Create temporary emails instantly
+        </div>
+       </div>
+       <div class="feature-item">
+        <div class="feature-icon">
+         🆓
+        </div>
+        <div class="feature-text"><strong>Free</strong> - 100% completely free to use
+        </div>
+       </div>
+       <div class="feature-item">
+        <div class="feature-icon">
+         🔄
+        </div>
+        <div class="feature-text"><strong>Multiple</strong> - 20+ Services available
+        </div>
+       </div>
+       <div class="feature-item">
+        <div class="feature-icon">
+         📱
+        </div>
+        <div class="feature-text"><strong>Responsive</strong> - Works on all devices
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <footer>
+     <div class="footer-content">
+      <div class="footer-copyright">
+       © 2024 Merge Temp Mail - Protect Your Email Privacy
+      </div>
+      <div class="footer-divider"></div>
+      <p style="margin-bottom: 15px;">This website brings popular Temp Mail services to one platform. We are not affiliated with any service.</p>
+      <div class="footer-links">
+       <a href="#" onclick="showInfo('Privacy', 'We do not store any of your information.')">🔒 Privacy</a> <a href="#" onclick="showInfo('Terms', 'Use this site only for legal purposes.')">📋 Terms</a> <a href="#" onclick="showInfo('Contact', 'support@mergmail.com')">📧 Contact</a> <a href="#" onclick="showInfo('About', 'Version 2.0 Enhanced - All New Features!')">ℹ️ About</a>
+      </div>
+     </div>
+    </footer>
+   </div>
+   <div class="side-ad-right">
+    <div class="side-ad-wrapper">
+     <script>
+                    atOptions = {
+                        'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+                        'format' : 'iframe',
+                        'height' : 600,
+                        'width' : 250,
+                        'params' : {}
+                    };
+                </script>
+     <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+    </div>
+   </div>
+  </div>
+  <div id="viewer-screen">
+   <div class="viewer-header">
+    <button class="back-btn" onclick="goHome()">⬅ Back</button>
+    <div class="viewer-title" id="viewer-title">
+     Site Name
+    </div>
+    <div class="action-buttons">
+     <button id="eod-inbox-btn" class="direct-link-btn success-btn" style="display: none;" onclick="loadEODInbox()">➡️ Go to Inbox</button> <a href="#" id="direct-open-btn" target="_blank" class="direct-link-btn">🔗 Direct Link</a>
+    </div>
+   </div>
+   <div id="inbox-view">
+    <div class="viewer-header" style="border-bottom: 1px solid var(--border-color);">
+     <button class="back-btn" onclick="goHome()">⬅ Back to Home</button>
+     <div class="viewer-title">
+      📬 Your Inbox - <span id="inbox-email" style="color: var(--primary-light);">loading...</span>
+     </div><button class="direct-link-btn success-btn" onclick="refreshInbox()">🔄 Refresh</button>
+    </div>
+    <div class="inbox-container">
+     <div id="messages-list"></div>
+    </div>
+   </div>
+   <div style="background: var(--bg-main); width: 100%; display: flex; justify-content: center; align-items: center; padding: 5px 0; min-height: 60px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+    <div class="ad-wrapper">
+     <script>
                     atOptions = {
                         'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
                         'format' : 'iframe',
@@ -204,156 +1291,12 @@
                         'params' : {}
                     };
                 </script>
-                <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
-            </div>
-        </div>
-
-        <h2 class="section-title">🌐 Temp Mail Providers</h2>
-        <div class="grid-container">
-            
-            <div class="card premium-card" onclick="openWeb('https://mail.tm/', 'Mail.tm')">
-                <div class="badge badge-premium">PREMIUM</div>
-                <div class="card-icon">⚡</div>
-                <div class="card-title">Mail.tm</div>
-                <div class="card-desc">Fast, modern, and reliable premium temporary email service.</div>
-            </div>
-
-            <div class="card premium-card" onclick="openWeb('https://emailmux.com/en/temporary-gmail', 'EmailMux')">
-                <div class="badge badge-premium">PREMIUM</div>
-                <div class="card-icon">📧</div>
-                <div class="card-title">EmailMux</div>
-                <div class="card-desc">Generate premium temporary Gmail addresses instantly.</div>
-            </div>
-
-            <div class="card premium-card" onclick="openWeb('https://nullsto.edu.pl/', 'Nullsto')">
-                <div class="badge badge-premium">PREMIUM</div>
-                <div class="card-icon">🎓</div>
-                <div class="card-title">Nullsto</div>
-                <div class="card-desc">Exclusive and secure premium temporary email service.</div>
-            </div>
-
-            <div class="card premium-card" onclick="openWeb('https://temp-emails.net/en', 'Temp-Emails')">
-                <div class="badge badge-premium">PREMIUM</div>
-                <div class="card-icon">🛡️</div>
-                <div class="card-title">Temp-Emails</div>
-                <div class="card-desc">Highly secure and premium temporary email service.</div>
-            </div>
-
-            <div class="card premium-card" onclick="openWeb('https://boomlify.com/', 'Boomlify')">
-                <div class="badge badge-premium">PREMIUM</div>
-                <div class="card-icon">🚀</div>
-                <div class="card-title">Boomlify</div>
-                <div class="card-desc">Advanced temporary emails with smart inbox preview.</div>
-            </div>
-
-            <div class="card premium-card" onclick="openWeb('https://toolpix.pythonanywhere.com/temp-mail', 'ToolPix Mail')">
-                <div class="badge badge-premium">PREMIUM</div>
-                <div class="card-icon">🛠️</div>
-                <div class="card-title">ToolPix Mail</div>
-                <div class="card-desc">Exclusive premium temporary email powered by ToolPix.</div>
-            </div>
-
-            <div class="card" onclick="openWeb('https://temp-inbox.me/', 'Temp Inbox')">
-                <div class="card-icon">📥</div>
-                <div class="card-title">Temp Inbox</div>
-                <div class="card-desc">Reliable and simple temporary inbox for fast email reception.</div>
-            </div>
-
-            <div class="card" onclick="openWeb('https://mailwave.dev/', 'MailWave')">
-                <div class="card-icon">🌊</div>
-                <div class="card-title">MailWave</div>
-                <div class="card-desc">Modern and fast temporary email service for seamless testing.</div>
-            </div>
-
-            <div class="card" onclick="openWeb('https://www.emailnator.com/', 'Emailnator')">
-                <div class="card-icon">📬</div>
-                <div class="card-title">Emailnator</div>
-                <div class="card-desc">Known for providing temporary Gmail addresses.</div>
-            </div>
-
-            <div class="card" onclick="openWeb('https://temp-mail.io/en', 'Temp Mail IO')">
-                <div class="card-icon">⏱️</div>
-                <div class="card-title">Temp Mail IO</div>
-                <div class="card-desc">Clean interface with multiple domain options available.</div>
-            </div>
-
-            <div class="card" onclick="openWeb('https://tempmail100.com/', 'TempMail100')">
-                <div class="card-icon">💯</div>
-                <div class="card-title">TempMail100</div>
-                <div class="card-desc">Quick, secure, and 100% free temporary email generator.</div>
-            </div>
-            
-            <div class="card" onclick="openWeb('https://tempmailo.com/', 'TempMailo')">
-                <div class="card-icon">📨</div>
-                <div class="card-title">TempMailo</div>
-                <div class="card-desc">Clean, responsive, and easy to use temporary email service.</div>
-            </div>
-
-            <div class="card" onclick="openWeb('https://emailfake.com/channel3/', 'EmailFake')">
-                <div class="card-icon">📮</div>
-                <div class="card-title">EmailFake</div>
-                <div class="card-desc">Generate fake email addresses instantly with custom domain options.</div>
-            </div>
-
-            <div class="card" onclick="openWeb('https://www.guerrillamail.com/', 'Guerrilla Mail')">
-                <div class="card-icon">🎭</div>
-                <div class="card-title">Guerrilla Mail</div>
-                <div class="card-desc">Classic provider, easy to use and very reliable in-app.</div>
-            </div>
-
-            <div class="card" onclick="openWeb('https://www.mailticking.com/', 'MailTicking')">
-                <div class="card-icon">📫</div>
-                <div class="card-title">MailTicking</div>
-                <div class="card-desc">Your custom provided link. Opens in viewer.</div>
-            </div>
-
-            <div class="card" onclick="openWeb('https://smailpro.com/temporary-email', 'Smailpro')">
-                <div class="card-icon">📩</div>
-                <div class="card-title">Smailpro</div>
-                <div class="card-desc">Advanced temporary email with Gmail options and high reliability.</div>
-            </div>
-
-            <div class="card" onclick="openWeb('https://tempail.com/', 'Tempail')">
-                <div class="card-icon">⏳</div>
-                <div class="card-title">Tempail</div>
-                <div class="card-desc">Simple, fast, and generates temporary emails instantly.</div>
-            </div>
-
-            <div class="card" onclick="openWeb('https://www.emailondeck.com/', 'EmailOnDeck')">
-                <div class="card-icon">🚢</div>
-                <div class="card-title">EmailOnDeck</div>
-                <div class="card-desc">Solve CAPTCHA, then click 'Go to Inbox' in the top bar.</div>
-            </div>
-
-            <div class="card" onclick="openWeb('https://temp-mail.org/en/', 'Temp Mail Org')">
-                <div class="card-icon">☁️</div>
-                <div class="card-title">Temp-Mail.org</div>
-                <div class="card-desc">Strict security provider. Use Direct Link if it blocks loading.</div>
-            </div>
-
-            <div class="card" onclick="openWeb('https://internxt.com/temporary-email', 'Internxt Mail')">
-                <div class="card-icon">🔒</div>
-                <div class="card-title">Internxt Mail</div>
-                <div class="card-desc">Strict Security: Use Direct Link Button to access inbox.</div>
-            </div>
-
-        </div>
-        <div style="text-align: center; margin-top: 40px; color: #475569; font-size: 12px;">App Version 10.7 • Strict Anti-Pop Edition</div>
+     <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
     </div>
-
-    <div id="viewer-screen">
-        <div class="viewer-header">
-            <button class="back-btn" onclick="goHome()">⬅ Back</button>
-            <div class="viewer-title" id="viewer-title">Site Name</div>
-            <div class="action-buttons">
-                <button id="eod-inbox-btn" class="direct-link-btn success-btn" style="display: none;" onclick="loadEODInbox()">➡️ Go to Inbox</button>
-                <a href="#" id="direct-open-btn" target="_blank" class="direct-link-btn">🔗 Direct Link</a>
-            </div>
-        </div>
-
-        <div style="background: var(--bg-main); width: 100%; display: flex; justify-content: center; align-items: center; padding: 5px 0; min-height: 60px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <div class="ad-wrapper">
-                <script>
+   </div><iframe id="web-frame" src=""></iframe>
+   <div style="background: var(--bg-main); width: 100%; display: flex; justify-content: center; align-items: center; padding: 5px 0; min-height: 60px; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div class="ad-wrapper">
+     <script>
                     atOptions = {
                         'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
                         'format' : 'iframe',
@@ -362,47 +1305,44 @@
                         'params' : {}
                     };
                 </script>
-                <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
-            </div>
-        </div>
-
-        <iframe id="web-frame" src=""></iframe>
-
-        <div style="background: var(--bg-main); width: 100%; display: flex; justify-content: center; align-items: center; padding: 5px 0; min-height: 60px; border-top: 1px solid rgba(255,255,255,0.1);">
-            <div class="ad-wrapper">
-                <script>
-                    atOptions = {
-                        'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
-                        'format' : 'iframe',
-                        'height' : 50,
-                        'width' : 320,
-                        'params' : {}
-                    };
-                </script>
-                <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
-            </div>
-        </div>
+     <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
     </div>
+   </div>
+  </div>
+  <script>
+        // --- CLICK SOUND INTEGRATION ---
+        const clickSound = new Audio('https://www.soundjay.com/buttons/sounds/button-16.mp3');
+        clickSound.volume = 0.2;
 
-    <script>
-        // 🛡️ SECURITY MAGIC: Domain Lock
-        document.addEventListener('DOMContentLoaded', function() {
-            const myDomain = "mergetempmail.qzz.io";
-            const currentDomain = window.location.hostname;
-            if(currentDomain !== myDomain && currentDomain !== "localhost" && !currentDomain.includes("vercel.app") && currentDomain !== "") {
-                window.location.href = "https://" + myDomain;
+        function playClick() {
+            clickSound.currentTime = 0;
+            clickSound.play().catch(e => console.log("Sound interaction required"));
+        }
+
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('button') || e.target.closest('.card') || e.target.closest('a')) {
+                playClick();
             }
         });
 
-        // 🛡️ SECURITY MAGIC: Keyboard Shortcuts Block
+        // DOMAIN SECURITY
+        document.addEventListener('DOMContentLoaded', function() {
+            const myDomain = window.location.hostname;
+            if(myDomain === "") {
+                console.log("Local testing mode enabled");
+            }
+        });
+
+        // KEYBOARD SHORTCUTS BLOCK
         document.onkeydown = function(e) {
-            if(e.keyCode == 123) { return false; } 
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } 
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; } 
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; } 
-            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } 
+            if(e.keyCode == 123) { return false; }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; }
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; }
         }
 
+        // SPLASH SCREEN & HOME INIT
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById('splash-screen');
             const home = document.getElementById('home-screen');
@@ -425,9 +1365,11 @@
                 splash.style.opacity = '0';
                 setTimeout(function() {
                     splash.style.display = 'none';
-                    home.style.display = 'block';
+                    home.style.display = 'flex';
                 }, 500);
-            }, 2000); 
+            }, 2000);
+
+            generateNewEmail();
         });
 
         const homeScreen = document.getElementById('home-screen');
@@ -438,70 +1380,179 @@
         const eodInboxBtn = document.getElementById('eod-inbox-btn');
         const infoPopup = document.getElementById('info-popup');
         const popupDirectLink = document.getElementById('popup-direct-link');
-        
-        let popupTimeout; 
+        const currentEmailDisplay = document.getElementById('current-email');
+
+        let popupTimeout;
+        let currentEmail = "user@mergmail.com";
+        let currentAccountId = null;
+        let currentToken = null;
+        let inboxMessages = [];
+        let navigationStack = []; 
+        let refreshInterval = null;
+        let isInOwnInbox = false;
+
+        const MAIL_TM_API = 'https://api.mail.tm';
+
+        async function createMailTmAccount() {
+            try {
+                const domainsRes = await fetch(`${MAIL_TM_API}/domains`);
+                const domainsData = await domainsRes.json();
+                const domain = domainsData['hydra:member'][0];
+
+                const randomPart = 'user' + Math.floor(Math.random() * 999999);
+                const email = `${randomPart}@${domain.domain}`;
+                const password = Math.random().toString(36).substring(2, 15);
+
+                const createRes = await fetch(`${MAIL_TM_API}/accounts`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ address: email, password: password })
+                });
+
+                const account = await createRes.json();
+                
+                if (account.id) {
+                    currentAccountId = account.id;
+                    currentEmail = email;
+                    currentEmailDisplay.textContent = currentEmail;
+
+                    const loginRes = await fetch(`${MAIL_TM_API}/token`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ address: email, password: password })
+                    });
+
+                    const tokenData = await loginRes.json();
+                    if (tokenData.token) {
+                        currentToken = tokenData.token;
+                        localStorage.setItem('mailtm_account', JSON.stringify({ 
+                            email, 
+                            password, 
+                            id: currentAccountId,
+                            token: currentToken
+                        }));
+                        startAutoFetchMessages();
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                currentEmailDisplay.textContent = 'Error creating email';
+            }
+        }
+
+        function startAutoFetchMessages() {
+            if (refreshInterval) clearInterval(refreshInterval);
+            refreshInterval = setInterval(() => {
+                if (currentToken) fetchInboxMessages();
+            }, 3000);
+        }
+
+        async function fetchInboxMessages() {
+            if (!currentToken) return;
+            try {
+                const messagesRes = await fetch(`${MAIL_TM_API}/messages`, {
+                    headers: { 'Authorization': `Bearer ${currentToken}` }
+                });
+                const messagesData = await messagesRes.json();
+                if (messagesData['hydra:member']) {
+                    inboxMessages = messagesData['hydra:member'].map(msg => ({
+                        id: msg.id,
+                        from: msg.from?.address || 'Unknown',
+                        subject: msg.subject || '(No subject)',
+                        time: formatTime(new Date(msg.createdAt))
+                    }));
+                }
+                if (isInOwnInbox) loadInboxMessages();
+                updateInlineInbox();
+            } catch (error) { console.error('Error:', error); }
+        }
+
+        function formatTime(date) {
+            const diff = new Date() - date;
+            const minutes = Math.floor(diff / 60000);
+            if (minutes < 1) return 'just now';
+            if (minutes < 60) return minutes + 'm ago';
+            return date.toLocaleDateString();
+        }
+
+        function generateNewEmail() {
+            currentEmailDisplay.textContent = 'Creating email...';
+            createMailTmAccount();
+        }
+
+        function copyEmail() {
+            navigator.clipboard.writeText(currentEmail).then(() => {
+                alert('✅ Email copied: ' + currentEmail);
+            });
+        }
 
         function closeViewerUI() {
+            navigationStack = [];
+            isInOwnInbox = false;
             viewerScreen.style.display = 'none';
-            homeScreen.style.display = 'block';
+            homeScreen.style.display = 'flex';
             webFrame.src = ""; 
             clearTimeout(popupTimeout);
             infoPopup.style.display = 'none';
-            localStorage.removeItem('lastUrl');
-            localStorage.removeItem('lastName');
         }
 
         function goHome() {
-            if (window.location.hash === '#viewer') {
-                history.back(); 
-            } else {
-                closeViewerUI();
-            }
+            closeViewerUI();
+            history.pushState(null, '', window.location.pathname);
         }
 
         function openWeb(url, name) {
+            navigationStack.push({ type: 'web', url: url, name: name });
+            viewerScreen.style.display = 'flex';
+            homeScreen.style.display = 'none';
+            document.getElementById('inbox-view').style.display = 'none';
+            webFrame.style.display = 'block';
+            webFrame.src = url;
+            viewerTitle.textContent = name;
+            directOpenBtn.href = url;
+            infoPopup.style.display = 'flex';
+            popupDirectLink.href = url;
             localStorage.setItem('lastUrl', url);
             localStorage.setItem('lastName', name);
-
-            homeScreen.style.display = 'none';
-            viewerScreen.style.display = 'flex';
-            
-            viewerTitle.innerText = name;
-            webFrame.src = url;
-            
-            directOpenBtn.href = url; 
-            popupDirectLink.href = url;
-
-            clearTimeout(popupTimeout);
-            popupTimeout = setTimeout(function() {
-                infoPopup.style.display = 'flex';
-            }, 3000); 
-
-            if (name === 'EmailOnDeck') {
-                eodInboxBtn.style.display = 'inline-block';
-            } else {
-                eodInboxBtn.style.display = 'none';
-            }
-
-            if (window.location.hash !== '#viewer') {
-                history.pushState({ screen: 'viewer' }, '', '#viewer');
-            }
+            history.pushState(null, '', '#viewer');
         }
 
-        function closePopup() {
-            infoPopup.style.display = 'none';
-        }
+        function closePopup() { infoPopup.style.display = 'none'; }
 
-        function loadEODInbox() {
-            webFrame.src = "https://www.emailondeck.com/eod.php";
-            eodInboxBtn.style.display = 'none'; 
-        }
-
-        window.addEventListener('popstate', function(event) {
-            if (window.location.hash !== '#viewer') {
-                closeViewerUI();
+        function loadInboxMessages() {
+            const list = document.getElementById('messages-list');
+            if (inboxMessages.length === 0) {
+                list.innerHTML = '<div class="inbox-empty">📭 Inbox khali hai</div>';
+                return;
             }
+            list.innerHTML = inboxMessages.map(msg => `
+                <div class="message-item">
+                    <div class="message-info">
+                        <div class="message-from">📧 ${msg.from}</div>
+                        <div class="message-subject">${msg.subject}</div>
+                    </div>
+                    <div class="message-time">${msg.time}</div>
+                </div>
+            `).join('');
+        }
+
+        function updateInlineInbox() {
+            const container = document.getElementById('inline-messages-container');
+            if (inboxMessages.length === 0) return;
+            container.innerHTML = inboxMessages.map(msg => `
+                <div class="message-item">
+                    <div class="message-info">
+                        <div class="message-from">📧 ${msg.from}</div>
+                        <div class="message-subject">${msg.subject}</div>
+                    </div>
+                    <div class="message-time">${msg.time}</div>
+                </div>
+            `).join('');
+        }
+
+        window.addEventListener('popstate', () => {
+            if (window.location.hash !== '#viewer') closeViewerUI();
         });
     </script>
-</body>
-</html>
+ </body>
+         </html>
