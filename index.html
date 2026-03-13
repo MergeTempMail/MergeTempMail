@@ -83,7 +83,7 @@
         .popup-close { background: transparent; color: var(--text-sub); border: 1px solid rgba(255,255,255,0.2); }
         .popup-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
-        /* AD WRAPPER */
+        /* AD WRAPPER (Anti-White Space) */
         .ad-wrapper {
             width: 320px;
             height: 50px;
@@ -356,7 +356,7 @@
             </div>
 
         </div>
-        <div style="text-align: center; margin-top: 40px; color: #475569; font-size: 12px;">App Version 10.4 • EmailMux Added Edition</div>
+        <div style="text-align: center; margin-top: 40px; color: #475569; font-size: 12px;">App Version 10.5 • Ultimate Restore Edition</div>
     </div>
 
     <div id="viewer-screen">
@@ -421,24 +421,35 @@
             if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } 
         }
 
+        // 🔥 SUPER MEMORY LOGIC (Fixing the Ad-Redirect Issue)
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById('splash-screen');
             const home = document.getElementById('home-screen');
             const viewer = document.getElementById('viewer-screen');
 
-            if(window.location.hash === '#viewer') {
-                let lastUrl = localStorage.getItem('lastUrl');
-                let lastName = localStorage.getItem('lastName');
+            // Bina URL check kiye sidha memory dekho ki last konsa khula tha
+            let lastUrl = localStorage.getItem('lastUrl');
+            let lastName = localStorage.getItem('lastName');
+            
+            if(lastUrl && lastName) {
+                // Turant Splash chupao
+                splash.style.display = 'none'; 
                 
-                if(lastUrl && lastName) {
-                    splash.style.display = 'none'; 
-                    openWeb(lastUrl, lastName); 
-                    return; 
-                } else {
+                // Agar ad wale ne URL se '#viewer' hata diya hai, toh chori se laga do bina redirect ke
+                if(window.location.hash !== '#viewer') {
+                    history.replaceState(null, '', '#viewer');
+                }
+                
+                openWeb(lastUrl, lastName); 
+                return; // Normal load stop kar do
+            } else {
+                // Agar memory khali hai, toh safely Home par jao
+                if(window.location.hash === '#viewer') {
                     history.replaceState(null, '', window.location.pathname);
                 }
             }
 
+            // Normal Splash Screen
             setTimeout(function() {
                 splash.style.opacity = '0';
                 setTimeout(function() {
@@ -465,6 +476,7 @@
             webFrame.src = ""; 
             clearTimeout(popupTimeout);
             infoPopup.style.display = 'none';
+            // Jab user apni marzi se Back dabaye, tabhi memory clear karo
             localStorage.removeItem('lastUrl');
             localStorage.removeItem('lastName');
         }
