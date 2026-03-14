@@ -1,14 +1,15 @@
 <!doctype html>
 <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Merge Temp Mail | Free Premium Temporary Email Generator</title>
-  <meta name="description" content="Generate free premium temporary emails instantly. Use Merge Temp Mail to protect your primary inbox from spam, bypass CAPTCHAs, and access top temp mail providers all in one place.">
-  <meta name="keywords" content="temp mail, temporary email, disposable email, fake email generator, trash mail, 10 minute mail, free temp mail, premium temp mail, merge temp mail, emailnator, smailpro, boomlify, nullsto, emailmux, inboxes">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Merge Mail">
-  <style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Temp Mail | Free Premium Temporary Email Generator</title>
+    <meta name="description" content="Generate free premium temporary emails instantly. Use Merge Temp Mail to protect your primary inbox from spam, bypass CAPTCHAs, and access top temp mail providers all in one place.">
+    <meta name="keywords" content="temp mail, temporary email, disposable email, fake email generator, trash mail, 10 minute mail, free temp mail, premium temp mail, merge temp mail, emailnator, smailpro, boomlify, nullsto, emailmux, inboxes, passbymail">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Merge Mail">
+    
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
 
         :root {
@@ -30,7 +31,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; user-select: none; -webkit-user-select: none; }
         
         html, body { height: 100%; background-color: var(--bg-main); color: var(--text-main); }
-        body { overflow-x: hidden; width: 100%; }
+        body { overflow-x: hidden; width: 100%; box-sizing: border-box; }
 
         /* SPLASH SCREEN */
         #splash-screen {
@@ -138,6 +139,20 @@
             border: 1px solid var(--border-color);
             border-radius: 12px;
             margin: 30px 0;
+        }
+
+        /* GRID BANNER AD */
+        .in-grid-ad {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            margin: 10px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         .content-center {
@@ -291,22 +306,6 @@
             margin-left: 15px;
         }
 
-        .delete-msg-btn {
-            background: var(--danger);
-            color: #fff;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 12px;
-            margin-left: 10px;
-            transition: 0.3s;
-        }
-
-        .delete-msg-btn:hover {
-            background: #dc2626;
-        }
-
         /* HEADER */
         header { 
             text-align: center; 
@@ -435,25 +434,6 @@
 
         .generate-btn:hover {
             background: #059669;
-        }
-
-        .inbox-btn {
-            background: var(--premium);
-            color: #000;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 14px;
-            transition: 0.3s;
-            display: inline-block;
-            text-decoration: none;
-        }
-
-        .inbox-btn:hover {
-            background: #d97706;
-            transform: translateY(-2px);
         }
 
         .tempmail-desc {
@@ -802,27 +782,19 @@
             .email-address { text-align: center; }
             .copy-btn, .generate-btn { width: 100%; }
         }
-
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
-  <style>body { box-sizing: border-box; }</style>
-  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
- </head>
- <body oncontextmenu="return false;">
-  <div id="splash-screen">
-   <div class="splash-logo">
-    M
-   </div>
-   <div class="splash-text">
-    MERGE <span>MAIL</span>
-   </div>
-   <div class="loader-bar"></div>
-  </div>
-  <div class="sticky-bottom-ad">
-   <div class="ad-wrapper">
-    <script>
+</head>
+<body oncontextmenu="return false;">
+    <div id="splash-screen">
+        <div class="splash-logo">M</div>
+        <div class="splash-text">MERGE <span>MAIL</span></div>
+        <div class="loader-bar"></div>
+    </div>
+    
+    <div class="sticky-bottom-ad">
+        <div class="ad-wrapper">
+            <script>
                 atOptions = {
                     'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
                     'format' : 'iframe',
@@ -831,22 +803,25 @@
                     'params' : {}
                 };
             </script>
-    <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
-   </div>
-  </div>
-  <div id="info-popup" class="popup-overlay">
-   <div class="popup-box">
-    <h3>⚠️ Important Notice</h3>
-    <p>If the website fails to load inside the app or you encounter a CAPTCHA error, please click the <b>Direct Link</b> button below.</p>
-    <div class="popup-actions">
-     <a href="#" id="popup-direct-link" target="_blank" class="popup-btn popup-direct" onclick="closePopup()">🔗 Open Direct Link</a> <button class="popup-btn popup-close" onclick="closePopup()">Continue in App</button>
+            <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+        </div>
     </div>
-   </div>
-  </div>
-  <div class="main-wrapper" id="home-screen">
-   <div class="side-ad-left">
-    <div class="side-ad-wrapper">
-     <script>
+
+    <div id="info-popup" class="popup-overlay">
+        <div class="popup-box">
+            <h3>⚠️ Important Notice</h3>
+            <p>If the website fails to load inside the app or you encounter a CAPTCHA error, please click the <b>Direct Link</b> button below.</p>
+            <div class="popup-actions">
+                <a href="#" id="popup-direct-link" target="_blank" class="popup-btn popup-direct" onclick="closePopup()">🔗 Open Direct Link</a> 
+                <button class="popup-btn popup-close" onclick="closePopup()">Continue in App</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-wrapper" id="home-screen">
+        <div class="side-ad-left">
+            <div class="side-ad-wrapper">
+                <script>
                     atOptions = {
                         'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
                         'format' : 'iframe',
@@ -855,412 +830,345 @@
                         'params' : {}
                     };
                 </script>
-     <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
-    </div>
-   </div>
-   <div class="content-center">
-    <header>
-     <h1>Merge <span>Temp Mail</span></h1>
-     <p>Your All-in-One Temporary Email Dashboard</p>
-     <div class="header-subtitle">
-      ✨ All Top Temp Mail Services in One Place!
-     </div>
-    </header>
-    <div class="header-ad-section">
-     <div class="ad-wrapper">
-      <script>
-       atOptions = {
-        'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
-        'format' : 'iframe',
-        'height' : 50,
-        'width' : 320,
-        'params' : {}
-       };
-      </script>
-      <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
-     </div>
-    </div>
-    <div class="home-content">
-     <div class="tempmail-section">
-      <div class="tempmail-header">
-       <h2>🚀 Your Temporary Email</h2><span class="tempmail-badge">Your Own</span>
-      </div>
-      <div class="tempmail-container">
-       <p class="tempmail-desc">This is your Personal Temporary Email. Copy it, generate a new one, or check your inbox!</p>
-       <div class="email-display">
-        <div class="email-address" id="current-email">
-         user@mergmail.com
-        </div><button class="copy-btn" onclick="copyEmail()">📋 Copy</button> <button class="generate-btn" onclick="generateNewEmail()">🔄 Generate New</button>
-       </div>
-      </div>
-      <div class="email-section-ad">
-       <div class="ad-wrapper">
-        <script>
-         atOptions = {
-          'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
-          'format' : 'iframe',
-          'height' : 50,
-          'width' : 320,
-          'params' : {}
-         };
-        </script>
-        <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
-       </div>
-      </div>
-     </div><div class="inline-inbox-section">
-      <div class="inline-inbox-header">
-       <h2>📬 Your Messages</h2>
-       <div style="display: flex; align-items: center; gap: 8px; color: var(--primary-light); font-size: 13px; font-weight: 600;"><span class="auto-refresh-spinner" style="display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(96, 165, 250, 0.3); border-top: 2px solid #60a5fa; border-radius: 50%; animation: spin 1s linear infinite;"></span> Auto-refreshing...
-       </div>
-      </div>
-      <style>
-       @keyframes spin { to { transform: rotate(360deg); } }
-      </style>
-      <div class="inline-messages-list" id="inline-messages-container">
-       <div class="inline-empty">
-        <div class="inline-empty-icon">
-         📭
+                <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+            </div>
         </div>
-        <p>Koi message nahi hai abhi</p>
-        <p style="font-size: 12px; margin-top: 10px;">Email copy karo, messages automatic aa jayenge</p>
-       </div>
-      </div>
-     </div>
-     <h2 class="section-title">🌐 All Temp Mail Services</h2>
-     <p class="section-desc">Below are 20+ Popular Services. Click on any to get started!</p>
-     <div class="grid-container">
-      <div class="card premium-card" onclick="openWeb('https://tempgmailer.com/', 'Temp GMailer')">
-       <div class="card-icon">
-        💠
-       </div>
-       <div class="card-title">
-        Temp GMailer
-       </div>
-       <div class="card-desc">
-        Fast Gmail-style temporary addresses.
-       </div>
-       <div class="card-badge">
-        Premium
-       </div>
-      </div>
-      <div class="card premium-card" onclick="openWeb('https://mail.tm/', 'Mail.tm')">
-       <div class="card-icon">
-        ⚡
-       </div>
-       <div class="card-title">
-        Mail.tm
-       </div>
-       <div class="card-desc">
-        Fast, modern, reliable premium service.
-       </div>
-       <div class="card-badge">
-        Premium
-       </div>
-      </div>
-      <div class="card premium-card" onclick="openWeb('https://inboxes.com/', 'Inboxes.com')">
-       <div class="card-icon">
-        📦
-       </div>
-       <div class="card-title">
-        Inboxes.com
-       </div>
-       <div class="card-desc">
-        Secure and fast temporary inboxes for your privacy.
-       </div>
-       <div class="card-badge">
-        Premium
-       </div>
-      </div>
-      <div class="card premium-card" onclick="openWeb('https://emailmux.com/en/temporary-gmail', 'EmailMux')">
-       <div class="card-icon">
-        📧
-       </div>
-       <div class="card-title">
-        EmailMux
-       </div>
-       <div class="card-desc">
-        Premium temporary Gmail addresses instantly.
-       </div>
-       <div class="card-badge">
-        Premium
-       </div>
-      </div>
-      <div class="card premium-card" onclick="openWeb('https://nullsto.edu.pl/', 'Nullsto')">
-       <div class="card-icon">
-        🎓
-       </div>
-       <div class="card-title">
-        Nullsto
-       </div>
-       <div class="card-desc">
-        Exclusive and secure premium service.
-       </div>
-       <div class="card-badge">
-        Premium
-       </div>
-      </div>
-      <div class="card premium-card" onclick="openWeb('https://temp-emails.net/en', 'Temp-Emails')">
-       <div class="card-icon">
-        🛡️
-       </div>
-       <div class="card-title">
-        Temp-Emails
-       </div>
-       <div class="card-desc">
-        Highly secure premium service.
-       </div>
-       <div class="card-badge">
-        Premium
-       </div>
-      </div>
-      <div class="card premium-card" onclick="openWeb('https://boomlify.com/', 'Boomlify')">
-       <div class="card-icon">
-        🚀
-       </div>
-       <div class="card-title">
-        Boomlify
-       </div>
-       <div class="card-desc">
-        Advanced with smart inbox preview.
-       </div>
-       <div class="card-badge">
-        Premium
-       </div>
-      </div>
-      <div class="card premium-card" onclick="openWeb('https://toolpix.pythonanywhere.com/temp-mail', 'ToolPix Mail')">
-       <div class="card-icon">
-        🛠️
-       </div>
-       <div class="card-title">
-        ToolPix Mail
-       </div>
-       <div class="card-desc">
-        Exclusive premium service by ToolPix.
-       </div>
-       <div class="card-badge">
-        Premium
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://temp-inbox.me/', 'Temp Inbox')">
-       <div class="card-icon">
-        📥
-       </div>
-       <div class="card-title">
-        Temp Inbox
-       </div>
-       <div class="card-desc">
-        Reliable and simple service.
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://mailwave.dev/', 'MailWave')">
-       <div class="card-icon">
-        🌊
-       </div>
-       <div class="card-title">
-        MailWave
-       </div>
-       <div class="card-desc">
-        Modern and fast emails.
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://www.emailnator.com/', 'Emailnator')">
-       <div class="card-icon">
-        📬
-       </div>
-       <div class="card-title">
-        Emailnator
-       </div>
-       <div class="card-desc">
-        Temporary Gmail addresses.
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://temp-mail.io/en', 'Temp Mail IO')">
-       <div class="card-icon">
-        ⏱️
-       </div>
-       <div class="card-title">
-        Temp Mail IO
-       </div>
-       <div class="card-desc">
-        Clean interface, multiple domains.
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://tempmail100.com/', 'TempMail100')">
-       <div class="card-icon">
-        💯
-       </div>
-       <div class="card-title">
-        TempMail100
-       </div>
-       <div class="card-desc">
-        Quick, secure, 100% free.
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://tempmailo.com/', 'TempMailo')">
-       <div class="card-icon">
-        📨
-       </div>
-       <div class="card-title">
-        TempMailo
-       </div>
-       <div class="card-desc">
-        Clean and easy to use.
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://emailfake.com/channel3/', 'EmailFake')">
-       <div class="card-icon">
-        📮
-       </div>
-       <div class="card-title">
-        EmailFake
-       </div>
-       <div class="card-desc">
-        Generate fake emails instantly.
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://www.guerrillamail.com/', 'Guerrilla Mail')">
-       <div class="card-icon">
-        🎭
-       </div>
-       <div class="card-title">
-        Guerrilla Mail
-       </div>
-       <div class="card-desc">
-        Classic, easy and reliable.
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://www.mailticking.com/', 'MailTicking')">
-       <div class="card-icon">
-        📫
-       </div>
-       <div class="card-title">
-        MailTicking
-       </div>
-       <div class="card-desc">
-        Custom links. Opens in viewer.
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://smailpro.com/temporary-email', 'Smailpro')">
-       <div class="card-icon">
-        📩
-       </div>
-       <div class="card-title">
-        Smailpro
-       </div>
-       <div class="card-desc">
-        Advanced with Gmail options.
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://tempail.com/', 'Tempail')">
-       <div class="card-icon">
-        ⏳
-       </div>
-       <div class="card-title">
-        Tempail
-       </div>
-       <div class="card-desc">
-        Simple, fast, instant emails.
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://www.emailondeck.com/', 'EmailOnDeck')">
-       <div class="card-icon">
-        🚢
-       </div>
-       <div class="card-title">
-        EmailOnDeck
-       </div>
-       <div class="card-desc">
-        Solve CAPTCHA then Go to Inbox.
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://temp-mail.org/en/', 'Temp Mail Org')">
-       <div class="card-icon">
-        ☁️
-       </div>
-       <div class="card-title">
-        Temp-Mail.org
-       </div>
-       <div class="card-desc">
-        Strict security provider.
-       </div>
-      </div>
-      <div class="card" onclick="openWeb('https://internxt.com/temporary-email', 'Internxt Mail')">
-       <div class="card-icon">
-        🔒
-       </div>
-       <div class="card-title">
-        Internxt Mail
-       </div>
-       <div class="card-desc">
-        Strict Security: Use Direct Link.
-       </div>
-      </div>
-     </div><div class="description-section">
-      <h2>📖 About Merge Temp Mail</h2>
-      <p><strong>Merge Temp Mail</strong> is your complete Temporary Email Dashboard that brings all popular services to one place. Protect your email privacy, avoid spam, and solve CAPTCHAs easily!</p>
-      <h3 style="margin-top: 25px; margin-bottom: 15px; font-size: 18px; color: var(--text-main);">✨ Key Features:</h3>
-      <div class="features-list">
-       <div class="feature-item">
-        <div class="feature-icon">
-         🛡️
+
+        <div class="content-center">
+            <header>
+                <h1>Merge <span>Temp Mail</span></h1>
+                <p>Your All-in-One Temporary Email Dashboard</p>
+                <div class="header-subtitle">✨ All Top Temp Mail Services in One Place!</div>
+            </header>
+
+            <div class="header-ad-section">
+                <div class="ad-wrapper">
+                    <script>
+                        atOptions = {
+                            'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+                </div>
+            </div>
+
+            <div class="home-content">
+                
+                <div class="tempmail-section">
+                    <div class="tempmail-header">
+                        <h2>🚀 Your Temporary Email</h2><span class="tempmail-badge">Your Own</span>
+                    </div>
+                    <div class="tempmail-container">
+                        <p class="tempmail-desc">This is your Personal Temporary Email. Copy it, generate a new one, or check your inbox!</p>
+                        <div class="email-display">
+                            <div class="email-address" id="current-email">user@mergmail.com</div>
+                            <button class="copy-btn" onclick="copyEmail()">📋 Copy</button> 
+                            <button class="generate-btn" onclick="generateNewEmail()">🔄 Generate New</button>
+                        </div>
+                    </div>
+
+                    <div class="email-section-ad">
+                        <div class="ad-wrapper">
+                            <script>
+                                atOptions = {
+                                    'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+                                    'format' : 'iframe',
+                                    'height' : 50,
+                                    'width' : 320,
+                                    'params' : {}
+                                };
+                            </script>
+                            <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inline-inbox-section">
+                    <div class="inline-inbox-header">
+                        <h2>📬 Your Messages</h2>
+                        <div style="display: flex; align-items: center; gap: 8px; color: var(--primary-light); font-size: 13px; font-weight: 600;">
+                            <span class="auto-refresh-spinner" style="display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(96, 165, 250, 0.3); border-top: 2px solid #60a5fa; border-radius: 50%; animation: spin 1s linear infinite;"></span> Auto-refreshing...
+                        </div>
+                    </div>
+                    
+                    <div class="inline-messages-list" id="inline-messages-container">
+                        <div class="inline-empty">
+                            <div class="inline-empty-icon">📭</div>
+                            <p>Koi message nahi hai abhi</p>
+                            <p style="font-size: 12px; margin-top: 10px;">Email copy karo, messages automatic aa jayenge</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">🌐 All Temp Mail Services</h2>
+                <p class="section-desc">Below are 20+ Popular Services. Click on any to get started!</p>
+                
+                <div class="grid-container">
+                    
+                    <div class="card premium-card" onclick="openWeb('https://tempgmailer.com/', 'Temp GMailer')">
+                        <div class="card-icon">💠</div>
+                        <div class="card-title">Temp GMailer</div>
+                        <div class="card-desc">Fast Gmail-style temporary addresses.</div>
+                        <div class="card-badge">Premium</div>
+                    </div>
+                    
+                    <div class="card premium-card" onclick="openWeb('https://mail.tm/', 'Mail.tm')">
+                        <div class="card-icon">⚡</div>
+                        <div class="card-title">Mail.tm</div>
+                        <div class="card-desc">Fast, modern, reliable premium service.</div>
+                        <div class="card-badge">Premium</div>
+                    </div>
+
+                    <div class="card premium-card" onclick="openWeb('https://inboxes.com/', 'Inboxes.com')">
+                        <div class="card-icon">📦</div>
+                        <div class="card-title">Inboxes.com</div>
+                        <div class="card-desc">Secure and fast temporary inboxes for your privacy.</div>
+                        <div class="card-badge">Premium</div>
+                    </div>
+
+                    <div class="card premium-card" onclick="openWeb('https://www.passbymail.com/en', 'PassByMail')">
+                        <div class="card-icon">🔑</div>
+                        <div class="card-title">PassByMail</div>
+                        <div class="card-desc">Secure and fast premium temporary email service.</div>
+                        <div class="card-badge">Premium</div>
+                    </div>
+
+                    <div class="card premium-card" onclick="openWeb('https://emailmux.com/en/temporary-gmail', 'EmailMux')">
+                        <div class="card-icon">📧</div>
+                        <div class="card-title">EmailMux</div>
+                        <div class="card-desc">Premium temporary Gmail addresses instantly.</div>
+                        <div class="card-badge">Premium</div>
+                    </div>
+                    
+                    <div class="card premium-card" onclick="openWeb('https://nullsto.edu.pl/', 'Nullsto')">
+                        <div class="card-icon">🎓</div>
+                        <div class="card-title">Nullsto</div>
+                        <div class="card-desc">Exclusive and secure premium service.</div>
+                        <div class="card-badge">Premium</div>
+                    </div>
+
+                    <div class="in-grid-ad">
+                        <div class="ad-wrapper">
+                            <script>
+                                atOptions = {
+                                    'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+                                    'format' : 'iframe',
+                                    'height' : 50,
+                                    'width' : 320,
+                                    'params' : {}
+                                };
+                            </script>
+                            <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+                        </div>
+                    </div>
+                    
+                    <div class="card premium-card" onclick="openWeb('https://temp-emails.net/en', 'Temp-Emails')">
+                        <div class="card-icon">🛡️</div>
+                        <div class="card-title">Temp-Emails</div>
+                        <div class="card-desc">Highly secure and premium temporary email service.</div>
+                        <div class="card-badge">Premium</div>
+                    </div>
+                    
+                    <div class="card premium-card" onclick="openWeb('https://boomlify.com/', 'Boomlify')">
+                        <div class="card-icon">🚀</div>
+                        <div class="card-title">Boomlify</div>
+                        <div class="card-desc">Advanced with smart inbox preview.</div>
+                        <div class="card-badge">Premium</div>
+                    </div>
+                    
+                    <div class="card premium-card" onclick="openWeb('https://toolpix.pythonanywhere.com/temp-mail', 'ToolPix Mail')">
+                        <div class="card-icon">🛠️</div>
+                        <div class="card-title">ToolPix Mail</div>
+                        <div class="card-desc">Exclusive premium service by ToolPix.</div>
+                        <div class="card-badge">Premium</div>
+                    </div>
+                    
+                    <div class="card" onclick="openWeb('https://temp-inbox.me/', 'Temp Inbox')">
+                        <div class="card-icon">📥</div>
+                        <div class="card-title">Temp Inbox</div>
+                        <div class="card-desc">Reliable and simple service.</div>
+                    </div>
+                    
+                    <div class="card" onclick="openWeb('https://mailwave.dev/', 'MailWave')">
+                        <div class="card-icon">🌊</div>
+                        <div class="card-title">MailWave</div>
+                        <div class="card-desc">Modern and fast emails.</div>
+                    </div>
+                    
+                    <div class="card" onclick="openWeb('https://www.emailnator.com/', 'Emailnator')">
+                        <div class="card-icon">📬</div>
+                        <div class="card-title">Emailnator</div>
+                        <div class="card-desc">Temporary Gmail addresses.</div>
+                    </div>
+
+                    <div class="in-grid-ad">
+                        <div class="ad-wrapper">
+                            <script>
+                                atOptions = {
+                                    'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+                                    'format' : 'iframe',
+                                    'height' : 50,
+                                    'width' : 320,
+                                    'params' : {}
+                                };
+                            </script>
+                            <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="openWeb('https://temp-mail.io/en', 'Temp Mail IO')">
+                        <div class="card-icon">⏱️</div>
+                        <div class="card-title">Temp Mail IO</div>
+                        <div class="card-desc">Clean interface, multiple domains.</div>
+                    </div>
+                    
+                    <div class="card" onclick="openWeb('https://tempmail100.com/', 'TempMail100')">
+                        <div class="card-icon">💯</div>
+                        <div class="card-title">TempMail100</div>
+                        <div class="card-desc">Quick, secure, 100% free.</div>
+                    </div>
+                    
+                    <div class="card" onclick="openWeb('https://tempmailo.com/', 'TempMailo')">
+                        <div class="card-icon">📨</div>
+                        <div class="card-title">TempMailo</div>
+                        <div class="card-desc">Clean and easy to use.</div>
+                    </div>
+                    
+                    <div class="card" onclick="openWeb('https://emailfake.com/channel3/', 'EmailFake')">
+                        <div class="card-icon">📮</div>
+                        <div class="card-title">EmailFake</div>
+                        <div class="card-desc">Generate fake emails instantly.</div>
+                    </div>
+                    
+                    <div class="card" onclick="openWeb('https://www.guerrillamail.com/', 'Guerrilla Mail')">
+                        <div class="card-icon">🎭</div>
+                        <div class="card-title">Guerrilla Mail</div>
+                        <div class="card-desc">Classic, easy and reliable.</div>
+                    </div>
+                    
+                    <div class="card" onclick="openWeb('https://www.mailticking.com/', 'MailTicking')">
+                        <div class="card-icon">📫</div>
+                        <div class="card-title">MailTicking</div>
+                        <div class="card-desc">Custom links. Opens in viewer.</div>
+                    </div>
+
+                    <div class="in-grid-ad">
+                        <div class="ad-wrapper">
+                            <script>
+                                atOptions = {
+                                    'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+                                    'format' : 'iframe',
+                                    'height' : 50,
+                                    'width' : 320,
+                                    'params' : {}
+                                };
+                            </script>
+                            <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="openWeb('https://smailpro.com/temporary-email', 'Smailpro')">
+                        <div class="card-icon">📩</div>
+                        <div class="card-title">Smailpro</div>
+                        <div class="card-desc">Advanced with Gmail options.</div>
+                    </div>
+                    
+                    <div class="card" onclick="openWeb('https://tempail.com/', 'Tempail')">
+                        <div class="card-icon">⏳</div>
+                        <div class="card-title">Tempail</div>
+                        <div class="card-desc">Simple, fast, instant emails.</div>
+                    </div>
+                    
+                    <div class="card" onclick="openWeb('https://www.emailondeck.com/', 'EmailOnDeck')">
+                        <div class="card-icon">🚢</div>
+                        <div class="card-title">EmailOnDeck</div>
+                        <div class="card-desc">Solve CAPTCHA then Go to Inbox.</div>
+                    </div>
+                    
+                    <div class="card" onclick="openWeb('https://temp-mail.org/en/', 'Temp Mail Org')">
+                        <div class="card-icon">☁️</div>
+                        <div class="card-title">Temp-Mail.org</div>
+                        <div class="card-desc">Strict security provider.</div>
+                    </div>
+                    
+                    <div class="card" onclick="openWeb('https://internxt.com/temporary-email', 'Internxt Mail')">
+                        <div class="card-icon">🔒</div>
+                        <div class="card-title">Internxt Mail</div>
+                        <div class="card-desc">Strict Security: Use Direct Link.</div>
+                    </div>
+
+                    <div class="in-grid-ad">
+                        <div class="ad-wrapper">
+                            <script>
+                                atOptions = {
+                                    'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
+                                    'format' : 'iframe',
+                                    'height' : 50,
+                                    'width' : 320,
+                                    'params' : {}
+                                };
+                            </script>
+                            <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="description-section">
+                    <h2>📖 About Merge Temp Mail</h2>
+                    <p><strong>Merge Temp Mail</strong> is your complete Temporary Email Dashboard that brings all popular services to one place. Protect your email privacy, avoid spam, and solve CAPTCHAs easily!</p>
+                    <h3 style="margin-top: 25px; margin-bottom: 15px; font-size: 18px; color: var(--text-main);">✨ Key Features:</h3>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">🛡️</div>
+                            <div class="feature-text"><strong>Privacy</strong> - Keep your email safe and private</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🚫</div>
+                            <div class="feature-text"><strong>Spam Block</strong> - Avoid unwanted emails</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚡</div>
+                            <div class="feature-text"><strong>Instant</strong> - Create temporary emails instantly</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🆓</div>
+                            <div class="feature-text"><strong>Free</strong> - 100% completely free to use</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔄</div>
+                            <div class="feature-text"><strong>Multiple</strong> - 20+ Services available</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📱</div>
+                            <div class="feature-text"><strong>Responsive</strong> - Works on all devices</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <div class="footer-content">
+                    <div class="footer-copyright">© 2024 Merge Temp Mail - Protect Your Email Privacy</div>
+                    <div class="footer-divider"></div>
+                    <p style="margin-bottom: 15px;">This website brings popular Temp Mail services to one platform. We are not affiliated with any service.</p>
+                    <div class="footer-links">
+                        <a href="#" onclick="showInfo('Privacy', 'We do not store any of your information.')">🔒 Privacy</a> 
+                        <a href="#" onclick="showInfo('Terms', 'Use this site only for legal purposes.')">📋 Terms</a> 
+                        <a href="#" onclick="showInfo('Contact', 'support@mergmail.com')">📧 Contact</a> 
+                        <a href="#" onclick="showInfo('About', 'Version 10.12 Enhanced - Pop/Banner Edition')">ℹ️ About</a>
+                    </div>
+                </div>
+            </footer>
         </div>
-        <div class="feature-text"><strong>Privacy</strong> - Keep your email safe and private
-        </div>
-       </div>
-       <div class="feature-item">
-        <div class="feature-icon">
-         🚫
-        </div>
-        <div class="feature-text"><strong>Spam Block</strong> - Avoid unwanted emails
-        </div>
-       </div>
-       <div class="feature-item">
-        <div class="feature-icon">
-         ⚡
-        </div>
-        <div class="feature-text"><strong>Instant</strong> - Create temporary emails instantly
-        </div>
-       </div>
-       <div class="feature-item">
-        <div class="feature-icon">
-         🆓
-        </div>
-        <div class="feature-text"><strong>Free</strong> - 100% completely free to use
-        </div>
-       </div>
-       <div class="feature-item">
-        <div class="feature-icon">
-         🔄
-        </div>
-        <div class="feature-text"><strong>Multiple</strong> - 20+ Services available
-        </div>
-       </div>
-       <div class="feature-item">
-        <div class="feature-icon">
-         📱
-        </div>
-        <div class="feature-text"><strong>Responsive</strong> - Works on all devices
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-    <footer>
-     <div class="footer-content">
-      <div class="footer-copyright">
-       © 2024 Merge Temp Mail - Protect Your Email Privacy
-      </div>
-      <div class="footer-divider"></div>
-      <p style="margin-bottom: 15px;">This website brings popular Temp Mail services to one platform. We are not affiliated with any service.</p>
-      <div class="footer-links">
-       <a href="#" onclick="showInfo('Privacy', 'We do not store any of your information.')">🔒 Privacy</a> <a href="#" onclick="showInfo('Terms', 'Use this site only for legal purposes.')">📋 Terms</a> <a href="#" onclick="showInfo('Contact', 'support@mergmail.com')">📧 Contact</a> <a href="#" onclick="showInfo('About', 'Version 2.0 Enhanced - All New Features!')">ℹ️ About</a>
-      </div>
-     </div>
-    </footer>
-   </div>
-   <div class="side-ad-right">
-    <div class="side-ad-wrapper">
-     <script>
+
+        <div class="side-ad-right">
+            <div class="side-ad-wrapper">
+                <script>
                     atOptions = {
                         'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
                         'format' : 'iframe',
@@ -1269,34 +1177,37 @@
                         'params' : {}
                     };
                 </script>
-     <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+                <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+            </div>
+        </div>
     </div>
-   </div>
-  </div>
-  <div id="viewer-screen">
-   <div class="viewer-header">
-    <button class="back-btn" onclick="goHome()">⬅ Back</button>
-    <div class="viewer-title" id="viewer-title">
-     Site Name
-    </div>
-    <div class="action-buttons">
-     <button id="eod-inbox-btn" class="direct-link-btn success-btn" style="display: none;" onclick="loadEODInbox()">➡️ Go to Inbox</button> <a href="#" id="direct-open-btn" target="_blank" class="direct-link-btn">🔗 Direct Link</a>
-    </div>
-   </div>
-   <div id="inbox-view">
-    <div class="viewer-header" style="border-bottom: 1px solid var(--border-color);">
-     <button class="back-btn" onclick="goHome()">⬅ Back to Home</button>
-     <div class="viewer-title">
-      📬 Your Inbox - <span id="inbox-email" style="color: var(--primary-light);">loading...</span>
-     </div><button class="direct-link-btn success-btn" onclick="refreshInbox()">🔄 Refresh</button>
-    </div>
-    <div class="inbox-container">
-     <div id="messages-list"></div>
-    </div>
-   </div>
-   <div style="background: var(--bg-main); width: 100%; display: flex; justify-content: center; align-items: center; padding: 5px 0; min-height: 60px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-    <div class="ad-wrapper">
-     <script>
+
+    <div id="viewer-screen">
+        <div class="viewer-header">
+            <button class="back-btn" onclick="goHome()">⬅ Back</button>
+            <div class="viewer-title" id="viewer-title">Site Name</div>
+            <div class="action-buttons">
+                <button id="eod-inbox-btn" class="direct-link-btn success-btn" style="display: none;" onclick="loadEODInbox()">➡️ Go to Inbox</button> 
+                <a href="#" id="direct-open-btn" target="_blank" class="direct-link-btn">🔗 Direct Link</a>
+            </div>
+        </div>
+
+        <div id="inbox-view">
+            <div class="viewer-header" style="border-bottom: 1px solid var(--border-color);">
+                <button class="back-btn" onclick="goHome()">⬅ Back to Home</button>
+                <div class="viewer-title">
+                    📬 Your Inbox - <span id="inbox-email" style="color: var(--primary-light);">loading...</span>
+                </div>
+                <button class="direct-link-btn success-btn" onclick="refreshInbox()">🔄 Refresh</button>
+            </div>
+            <div class="inbox-container">
+                <div id="messages-list"></div>
+            </div>
+        </div>
+
+        <div style="background: var(--bg-main); width: 100%; display: flex; justify-content: center; align-items: center; padding: 5px 0; min-height: 60px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div class="ad-wrapper">
+                <script>
                     atOptions = {
                         'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
                         'format' : 'iframe',
@@ -1305,12 +1216,15 @@
                         'params' : {}
                     };
                 </script>
-     <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
-    </div>
-   </div><iframe id="web-frame" src=""></iframe>
-   <div style="background: var(--bg-main); width: 100%; display: flex; justify-content: center; align-items: center; padding: 5px 0; min-height: 60px; border-top: 1px solid rgba(255,255,255,0.1);">
-    <div class="ad-wrapper">
-     <script>
+                <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+            </div>
+        </div>
+
+        <iframe id="web-frame" src=""></iframe>
+
+        <div style="background: var(--bg-main); width: 100%; display: flex; justify-content: center; align-items: center; padding: 5px 0; min-height: 60px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <div class="ad-wrapper">
+                <script>
                     atOptions = {
                         'key' : '9c25d2d740c9bcadbfd19a3cf16a0352',
                         'format' : 'iframe',
@@ -1319,26 +1233,12 @@
                         'params' : {}
                     };
                 </script>
-     <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+                <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
+            </div>
+        </div>
     </div>
-   </div>
-  </div>
-  <script>
-        // --- CLICK SOUND INTEGRATION ---
-        const clickSound = new Audio('https://www.soundjay.com/buttons/sounds/button-16.mp3');
-        clickSound.volume = 0.2;
 
-        function playClick() {
-            clickSound.currentTime = 0;
-            clickSound.play().catch(e => console.log("Sound interaction required"));
-        }
-
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('button') || e.target.closest('.card') || e.target.closest('a')) {
-                playClick();
-            }
-        });
-
+    <script>
         // DOMAIN SECURITY
         document.addEventListener('DOMContentLoaded', function() {
             const myDomain = window.location.hostname;
@@ -1397,7 +1297,7 @@
         const currentEmailDisplay = document.getElementById('current-email');
 
         let popupTimeout;
-        let currentEmail = "user@mergmail.com";
+        let currentEmail = "Generating...";
         let currentAccountId = null;
         let currentToken = null;
         let inboxMessages = [];
@@ -1439,18 +1339,12 @@
                     const tokenData = await loginRes.json();
                     if (tokenData.token) {
                         currentToken = tokenData.token;
-                        localStorage.setItem('mailtm_account', JSON.stringify({ 
-                            email, 
-                            password, 
-                            id: currentAccountId,
-                            token: currentToken
-                        }));
                         startAutoFetchMessages();
                     }
                 }
             } catch (error) {
                 console.error('Error:', error);
-                currentEmailDisplay.textContent = 'Error creating email';
+                currentEmailDisplay.textContent = 'Error connecting to API';
             }
         }
 
@@ -1459,6 +1353,10 @@
             refreshInterval = setInterval(() => {
                 if (currentToken) fetchInboxMessages();
             }, 3000);
+        }
+
+        function refreshInbox() {
+            fetchInboxMessages();
         }
 
         async function fetchInboxMessages() {
@@ -1505,7 +1403,7 @@
             isInOwnInbox = false;
             viewerScreen.style.display = 'none';
             homeScreen.style.display = 'flex';
-            webFrame.src = ""; 
+            if(webFrame) webFrame.src = ""; 
             clearTimeout(popupTimeout);
             infoPopup.style.display = 'none';
         }
@@ -1519,9 +1417,17 @@
             navigationStack.push({ type: 'web', url: url, name: name });
             viewerScreen.style.display = 'flex';
             homeScreen.style.display = 'none';
-            document.getElementById('inbox-view').style.display = 'none';
-            webFrame.style.display = 'block';
-            webFrame.src = url;
+            
+            const inboxView = document.getElementById('inbox-view');
+            if(inboxView) {
+                inboxView.style.display = 'none';
+            }
+            
+            if(webFrame) {
+                webFrame.style.display = 'block';
+                webFrame.src = url;
+            }
+            
             viewerTitle.textContent = name;
             directOpenBtn.href = url;
             infoPopup.style.display = 'flex';
@@ -1535,6 +1441,7 @@
 
         function loadInboxMessages() {
             const list = document.getElementById('messages-list');
+            if(!list) return;
             if (inboxMessages.length === 0) {
                 list.innerHTML = '<div class="inbox-empty">📭 Inbox khali hai</div>';
                 return;
@@ -1552,7 +1459,7 @@
 
         function updateInlineInbox() {
             const container = document.getElementById('inline-messages-container');
-            if (inboxMessages.length === 0) return;
+            if (!container || inboxMessages.length === 0) return;
             container.innerHTML = inboxMessages.map(msg => `
                 <div class="message-item">
                     <div class="message-info">
@@ -1568,5 +1475,8 @@
             if (window.location.hash !== '#viewer') closeViewerUI();
         });
     </script>
- </body>
+    
+    <script type='text/javascript' src='https://pl28898452.effectivegatecpm.com/a0/7e/d2/a07ed2c8c7869a25f82bbe9ee3ce8f6e.js'></script>
+
+</body>
 </html>
