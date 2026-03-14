@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Free Temp Mail – Temporary Email & Receive SMS Online | Merge Temp Mail</title>
-    <meta name="description" content="Generate free temp mail instantly. Best free temporary email generator without signup. Use Merge Temp Mail for verification, receive SMS online free, and protect your privacy.">
+    <title>Merge Temp Mail | Free Premium Temporary Email Generator</title>
+    <meta name="description" content="Generate free premium temporary emails instantly. Use Merge Temp Mail to protect your primary inbox from spam, bypass CAPTCHAs, and access top temp mail providers all in one place.">
     <meta name="keywords" content="temp mail, temporary email, disposable email, fake email generator, trash mail, 10 minute mail, free temp mail, premium temp mail, merge temp mail, emailnator, smailpro, boomlify, nullsto, emailmux, inboxes, passbymail">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Merge Mail">
@@ -31,7 +30,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; user-select: none; -webkit-user-select: none; }
         
-        html, body { height: 100%; background-color: var(--bg-main); color: var(--text-main); scroll-behavior: smooth; }
+        html, body { height: 100%; background-color: var(--bg-main); color: var(--text-main); }
         body { overflow-x: hidden; width: 100%; box-sizing: border-box; }
 
         /* SPLASH SCREEN */
@@ -90,7 +89,7 @@
         .popup-close { background: rgba(255,255,255,0.1); color: var(--text-sub); border: 1px solid var(--border-color); }
         .popup-close:hover { background: rgba(255,255,255,0.15); color: #fff; }
 
-        /* MAIN LAYOUT */
+        /* MAIN LAYOUT FIX */
         .main-wrapper {
             display: flex;
             min-height: 100vh;
@@ -110,144 +109,675 @@
             overflow-y: auto;
             border-right: 1px solid var(--border-color);
         }
-        .side-ad-right { display: none; }
-        @media (min-width: 1600px) { .side-ad-left { width: 0; } }
 
-        .header-ad-section { display: flex; justify-content: center; align-items: center; padding: 15px 0; background: rgba(59, 130, 246, 0.05); border-bottom: 1px solid var(--border-color); margin-bottom: 20px; }
-        .email-section-ad { display: flex; justify-content: center; align-items: center; padding: 15px 0; background: rgba(245, 158, 11, 0.05); border: 1px solid var(--border-color); border-radius: 12px; margin: 30px 0; }
-        .in-grid-ad { grid-column: 1 / -1; display: flex; justify-content: center; align-items: center; padding: 15px 0; background: rgba(59, 130, 246, 0.05); border: 1px solid var(--border-color); border-radius: 16px; margin: 10px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .side-ad-right {
+            display: none;
+        }
 
-        .content-center { flex: 1; display: flex; flex-direction: column; overflow-y: auto; padding-bottom: 80px; width: 100%; }
+        @media (min-width: 1600px) {
+            .side-ad-left { width: 0; }
+        }
 
-        .ad-wrapper { width: 320px; height: 50px; margin: 0 auto; overflow: hidden; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 5px; }
-        .side-ad-wrapper { width: 250px; display: flex; justify-content: center; align-items: center; flex-direction: column; }
+        /* HOME PAGE HEADER AD */
+        .header-ad-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            background: rgba(59, 130, 246, 0.05);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
 
-        .sticky-bottom-ad { position: fixed; bottom: 0; left: 0; width: 100%; height: 70px; background: linear-gradient(180deg, var(--card-bg) 0%, var(--bg-main) 100%); display: flex; justify-content: center; align-items: center; z-index: 99999; border-top: 1px solid var(--border-color); box-shadow: 0 -10px 30px rgba(0,0,0,0.8); }
+        /* EMAIL SECTION AD */
+        .email-section-ad {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            background: rgba(245, 158, 11, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin: 30px 0;
+        }
 
-        #home-screen { padding: 0; display: none; }
-        .home-content { padding: 30px; max-width: 1100px; margin: 0 auto; width: 100%; }
-
-        #viewer-screen { display: none; height: 100vh; width: 100%; flex-direction: column; background: var(--bg-main); position: fixed; top: 0; left: 0; z-index: 2000; }
-        #inbox-view { display: none; flex-direction: column; height: 100vh; background: var(--bg-main); color: var(--text-main); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; }
-        .inbox-container { flex: 1; overflow-y: auto; padding: 0; max-width: 100%; margin: 0 auto; width: 100%; display: flex; flex-direction: column; }
-        .inbox-empty { text-align: center; padding: 60px 20px; color: var(--text-sub); }
-        .inbox-empty-icon { font-size: 60px; margin-bottom: 20px; }
-
-        .message-item { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 0; padding: 16px 20px; margin-bottom: 0; cursor: pointer; transition: 0.3s; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); }
-        .message-item:hover { background: var(--card-hover); border-color: var(--primary); transform: none; }
-        .message-info { flex: 1; }
-        .message-from { font-weight: 600; color: var(--text-main); margin-bottom: 4px; }
-        .message-subject { font-size: 14px; color: var(--text-sub); }
-        .message-time { font-size: 12px; color: var(--text-sub); white-space: nowrap; margin-left: 15px; }
-
-        /* HEADER */
-        header { text-align: center; padding: 40px 30px; background: linear-gradient(180deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%); border-bottom: 1px solid var(--border-color); margin-bottom: 30px; }
-        header h1 { font-size: 42px; font-weight: 800; color: #fff; letter-spacing: 1px; margin-bottom: 12px; }
-        header h1 span { background: linear-gradient(135deg, var(--primary-light), var(--premium)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        header p { color: var(--text-sub); font-size: 16px; margin-bottom: 10px; }
-        .header-subtitle { color: var(--text-main); font-size: 15px; background: rgba(59, 130, 246, 0.1); padding: 8px 15px; border-radius: 8px; display: inline-block; border: 1px solid var(--border-color); }
-
-        /* TEMP MAIL SECTION */
-        .tempmail-section { margin-bottom: 40px; animation: fadeIn 0.6s ease 0.3s both; }
-        .tempmail-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
-        .tempmail-header h2 { font-size: 24px; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
-        .tempmail-badge { background: linear-gradient(135deg, var(--premium), #f97316); color: #000; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-        .tempmail-container { background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(245, 158, 11, 0.1)); border: 1px solid var(--border-color); border-radius: 16px; padding: 25px; margin-bottom: 20px; }
-        .email-display { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px 18px; margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-        .email-address { font-size: 16px; font-weight: 600; color: var(--primary-light); font-family: 'Courier New', monospace; word-break: break-all; flex: 1; }
-        .copy-btn, .generate-btn { background: var(--primary); color: #fff; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; transition: 0.3s; white-space: nowrap; }
-        .copy-btn:hover, .generate-btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
-        .generate-btn { background: var(--success); }
-        .generate-btn:hover { background: #059669; }
-        .tempmail-desc { color: var(--text-sub); font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
-
-        /* INLINE INBOX SECTION */
-        .inline-inbox-section { background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.1)); border: 1px solid var(--border-color); border-radius: 16px; padding: 25px; margin-bottom: 40px; }
-        .inline-inbox-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
-        .inline-inbox-header h2 { font-size: 24px; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
-        .inline-messages-list { max-height: 400px; overflow-y: auto; padding: 10px 0; }
-        .inline-empty { text-align: center; padding: 40px 20px; color: var(--text-sub); }
-        .inline-empty-icon { font-size: 50px; margin-bottom: 15px; }
-
-        /* CARDS & GRID */
-        .section-title { font-size: 20px; font-weight: 700; margin: 35px 0 20px; border-left: 4px solid var(--primary); padding-left: 15px; display: flex; align-items: center; gap: 10px; }
-        .section-desc { color: var(--text-sub); font-size: 14px; margin-bottom: 20px; padding-left: 15px; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 22px; margin-bottom: 30px; }
-        .card { background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-hover) 100%); border-radius: 16px; padding: 28px 22px; text-align: center; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid var(--border-color); box-shadow: 0 8px 16px rgba(0,0,0,0.2); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
-        .card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); transition: left 0.5s ease; }
-        .card:hover::before { left: 100%; }
-        .card:hover { transform: translateY(-8px) scale(1.02); border-color: var(--primary); box-shadow: 0 16px 32px rgba(59, 130, 246, 0.3); }
-        .premium-card { border-color: rgba(245, 158, 11, 0.5); background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, var(--card-hover) 100%); }
-        .premium-card:hover { border-color: var(--premium); box-shadow: 0 16px 32px rgba(245, 158, 11, 0.25); }
-        .card-icon { font-size: 45px; margin-bottom: 15px; animation: float 3s ease-in-out infinite; }
-        .card-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--text-main); }
-        .card-desc { font-size: 13px; color: var(--text-sub); line-height: 1.5; margin-bottom: 12px; }
-        .card-badge { font-size: 11px; color: #000; background: var(--premium); padding: 4px 8px; border-radius: 4px; font-weight: 700; display: inline-block; margin-bottom: 10px; }
-
-        /* 🔥 NEW SEO & ABOUT US SECTION 🔥 */
-        .description-section {
-            background: var(--card-bg);
+        /* GRID BANNER AD */
+        .in-grid-ad {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            background: rgba(59, 130, 246, 0.05);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 40px 30px;
-            margin: 50px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            user-select: text; 
-            -webkit-user-select: text;
+            margin: 10px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
-        .description-section h2 { 
-            font-size: 26px; 
-            color: var(--primary-light); 
-            margin-bottom: 25px; 
+        .content-center {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            padding-bottom: 80px;
+            width: 100%;
+        }
+
+        /* AD WRAPPERS */
+        .ad-wrapper {
+            width: 320px;
+            height: 50px;
+            margin: 0 auto;
+            overflow: hidden; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 5px;
+        }
+
+        .side-ad-wrapper {
+            width: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* STICKY BOTTOM AD */
+        .sticky-bottom-ad {
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 70px;
+            background: linear-gradient(180deg, var(--card-bg) 0%, var(--bg-main) 100%);
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            z-index: 99999; 
+            border-top: 1px solid var(--border-color);
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.8);
+        }
+
+        /* HOME SCREEN */
+        #home-screen { 
+            padding: 0;
+            display: none;
+        }
+
+        .home-content {
+            padding: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* VIEWER FIX */
+        #viewer-screen { 
+            display: none; 
+            height: 100vh; /* Full Height */
+            width: 100%;
+            flex-direction: column; 
+            background: var(--bg-main); 
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2000;
+        }
+
+        #inbox-view {
+            display: none;
+            flex-direction: column;
+            height: 100vh;
+            background: var(--bg-main);
+            color: var(--text-main);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .inbox-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0;
+            max-width: 100%;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inbox-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-sub);
+        }
+
+        .inbox-empty-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .message-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 0;
+            padding: 16px 20px;
+            margin-bottom: 0;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .message-item:hover {
+            background: var(--card-hover);
+            border-color: var(--primary);
+            transform: none;
+        }
+
+        .message-info {
+            flex: 1;
+        }
+
+        .message-from {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .message-subject {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .message-time {
+            font-size: 12px;
+            color: var(--text-sub);
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+
+        /* HEADER */
+        header { 
+            text-align: center; 
+            padding: 40px 30px; 
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        header h1 { 
+            font-size: 42px; 
             font-weight: 800; 
-            border-bottom: 2px solid var(--border-color); 
-            padding-bottom: 15px; 
-            line-height: 1.4;
+            color: #fff; 
+            letter-spacing: 1px;
+            margin-bottom: 12px;
         }
-        
-        .description-section p { 
+
+        header h1 span { 
+            background: linear-gradient(135deg, var(--primary-light), var(--premium));
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p { 
             color: var(--text-sub); 
-            font-size: 15px; 
-            line-height: 1.9; 
-            margin-bottom: 20px; 
-            text-align: justify; 
+            font-size: 16px; 
+            margin-bottom: 10px;
         }
-        
-        .description-section strong { 
-            color: var(--text-main); 
-            font-weight: 600; 
-            background: rgba(255,255,255,0.05);
-            padding: 0 4px;
+
+        .header-subtitle {
+            color: var(--text-main);
+            font-size: 15px;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 8px 15px;
+            border-radius: 8px;
+            display: inline-block;
+            border: 1px solid var(--border-color);
+        }
+
+        /* TEMP MAIL SECTION */
+        .tempmail-section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.6s ease 0.3s both;
+        }
+
+        .tempmail-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tempmail-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tempmail-badge {
+            background: linear-gradient(135deg, var(--premium), #f97316);
+            color: #000;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tempmail-container {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(245, 158, 11, 0.1));
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .email-display {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .email-address {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-light);
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            flex: 1;
+        }
+
+        .copy-btn, .generate-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover, .generate-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .generate-btn {
+            background: var(--success);
+        }
+
+        .generate-btn:hover {
+            background: #059669;
+        }
+
+        .tempmail-desc {
+            color: var(--text-sub);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* INLINE INBOX SECTION */
+        .inline-inbox-section {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.1));
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+
+        .inline-inbox-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .inline-inbox-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .inline-messages-list {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px 0;
+        }
+
+        .inline-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-sub);
+        }
+
+        .inline-empty-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        /* SERVICES SECTION */
+        .section-title { 
+            font-size: 20px; 
+            font-weight: 700; 
+            margin: 35px 0 20px; 
+            border-left: 4px solid var(--primary); 
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-desc {
+            color: var(--text-sub);
+            font-size: 14px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+        }
+
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); 
+            gap: 22px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-hover) 100%);
+            border-radius: 16px; 
+            padding: 28px 22px; 
+            text-align: center;
+            cursor: pointer; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            position: relative; 
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover { 
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 16px 32px rgba(59, 130, 246, 0.3);
+        }
+
+        .premium-card { 
+            border-color: rgba(245, 158, 11, 0.5);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, var(--card-hover) 100%);
+        }
+
+        .premium-card:hover { 
+            border-color: var(--premium);
+            box-shadow: 0 16px 32px rgba(245, 158, 11, 0.25);
+        }
+
+        .card-icon { 
+            font-size: 45px; 
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .card-title { 
+            font-size: 18px; 
+            font-weight: 700; 
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .card-desc { 
+            font-size: 13px; 
+            color: var(--text-sub); 
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .card-badge {
+            font-size: 11px;
+            color: #000;
+            background: var(--premium);
+            padding: 4px 8px;
             border-radius: 4px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* DESCRIPTION SECTION */
+        .description-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(245, 158, 11, 0.05));
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 35px 28px;
+            margin: 50px 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .description-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .description-section p {
+            color: var(--text-sub);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-icon {
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .feature-text {
+            font-size: 13px;
+            color: var(--text-sub);
         }
 
         /* VIEWER */
-        .viewer-header { background: var(--card-bg); padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; color: #fff; flex-wrap: wrap; gap: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 10; border-bottom: 1px solid var(--border-color); }
-        .back-btn { background: rgba(59, 130, 246, 0.2); color: var(--primary-light); border: 1px solid var(--border-color); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; transition: 0.3s; }
-        .back-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
-        .viewer-title { font-size: 16px; font-weight: 700; flex-grow: 1; text-align: center; }
-        .action-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
-        .direct-link-btn { background: var(--primary); color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 8px; font-weight: 600; font-size: 13px; text-align: center; transition: 0.3s; cursor: pointer; border: none; }
-        .direct-link-btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
-        .success-btn { background: var(--success); }
-        .success-btn:hover { background: #059669; }
-        iframe { width: 100%; height: 100%; border: none; flex-grow: 1; background: #fff; }
+        .viewer-header { 
+            background: var(--card-bg); 
+            padding: 12px 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            color: #fff; 
+            flex-wrap: wrap; 
+            gap: 12px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+            z-index: 10;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .back-btn { 
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary-light);
+            border: 1px solid var(--border-color);
+            padding: 8px 15px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover { 
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .viewer-title { 
+            font-size: 16px; 
+            font-weight: 700; 
+            flex-grow: 1; 
+            text-align: center;
+        }
+
+        .action-buttons { 
+            display: flex; 
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .direct-link-btn { 
+            background: var(--primary); 
+            color: #fff; 
+            text-decoration: none; 
+            padding: 8px 15px; 
+            border-radius: 8px; 
+            font-weight: 600; 
+            font-size: 13px; 
+            text-align: center; 
+            transition: 0.3s; 
+            cursor: pointer; 
+            border: none;
+        }
+
+        .direct-link-btn:hover { 
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .success-btn { 
+            background: var(--success); 
+        }
+
+        .success-btn:hover { 
+            background: #059669; 
+        }
+
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            flex-grow: 1; 
+            background: #fff;
+        }
 
         /* FOOTER */
-        footer { background: var(--card-bg); border-top: 1px solid var(--border-color); padding: 30px 25px; text-align: center; color: var(--text-sub); font-size: 13px; margin-top: 50px; }
-        .footer-content { max-width: 1100px; margin: 0 auto; }
-        .footer-copyright { margin-bottom: 12px; font-weight: 600; color: var(--text-main); }
-        .footer-divider { width: 60px; height: 2px; background: var(--primary); margin: 15px auto; border-radius: 1px; }
-        .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 15px; }
-        .footer-links a { color: var(--primary-light); text-decoration: none; transition: 0.3s; cursor: pointer;}
-        .footer-links a:hover { color: #fff; }
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 30px 25px;
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 13px;
+            margin-top: 50px;
+        }
 
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-copyright {
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--primary);
+            margin: 15px auto;
+            border-radius: 1px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             header h1 { font-size: 28px; }
             .grid-container { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
             .section-title { font-size: 18px; }
             .home-content { padding: 20px; }
+            .tempmail-container { padding: 15px; }
             .email-display { flex-direction: column; align-items: stretch; }
             .email-address { text-align: center; }
             .copy-btn, .generate-btn { width: 100%; }
@@ -435,7 +965,7 @@
                             <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
                         </div>
                     </div>
-
+                    
                     <div class="card premium-card" onclick="openWeb('https://temp-emails.net/en', 'Temp-Emails')">
                         <div class="card-icon">🛡️</div>
                         <div class="card-title">Temp-Emails</div>
@@ -585,27 +1115,39 @@
                             <script src="https://www.highperformanceformat.com/9c25d2d740c9bcadbfd19a3cf16a0352/invoke.js"></script>
                         </div>
                     </div>
+
                 </div>
 
-                <div class="description-section" id="about-us-section">
-                    <h2>📖 About Us – Free Temp Mail & Receive SMS Online</h2>
-                    <p>Welcome to our platform, your complete solution for <strong>Temp Mail</strong>, <strong>Temporary Email</strong>, <strong>Disposable Email</strong>, and <strong>Receive SMS Online</strong> services. Our website provides users with <strong>free temp mail</strong>, <strong>temporary email address</strong>, <strong>disposable email generator</strong>, and <strong>virtual phone number</strong> services to help protect privacy and avoid spam.</p>
-                    
-                    <p>In today’s digital world, many websites require email verification, OTP verification, and account registration. Our platform offers <strong>free temporary email</strong>, <strong>instant temp mail generator</strong>, and <strong>anonymous email address</strong> services so you can create a temporary inbox instantly without signup. Whether you need a <strong>temp email for OTP verification</strong>, <strong>temp mail for account verification</strong>, or a <strong>disposable email for social media signup</strong>, our service helps you generate a temporary email address in seconds.</p>
-                    
-                    <p>Our goal is to provide users with the <strong>best temp mail service</strong> and <strong>free disposable email generator</strong>. With our platform, you can easily access <strong>10 minute mail</strong>, <strong>10 min mail</strong>, <strong>instant temp mail</strong>, <strong>temporary gmail generator</strong>, and <strong>anonymous email inbox</strong> services. These tools allow users to <strong>receive emails online</strong>, protect their real email inbox, and avoid spam messages.</p>
-                    
-                    <p>Along with our own <strong>free temp mail service</strong>, our website also lists and connects users to many popular <strong>temp mail providers</strong> and <strong>disposable email services</strong>. This means you can find multiple <strong>temporary email services</strong>, <strong>temp mail generators</strong>, and <strong>disposable email platforms</strong> in one place. If you are searching for the <strong>best free temporary email generator without signup</strong> or the <strong>fastest temporary email service</strong>, our platform makes it easy to discover and use them.</p>
-                    
-                    <p>Our platform also supports <strong>receive SMS online</strong> services where users can <strong>receive SMS online free</strong>, <strong>receive OTP online</strong>, and get <strong>verification codes instantly</strong> using <strong>virtual phone numbers</strong>. You can use these services for WhatsApp verification, Telegram verification, Google verification, and other account verification processes. Our system helps users <strong>receive SMS without phone numbers</strong> and access <strong>online SMS inbox</strong> services securely.</p>
-                    
-                    <p>For businesses and marketers, we also provide information and access to <strong>bulk SMS services</strong>, <strong>bulk SMS providers</strong>, <strong>SMS marketing services</strong>, <strong>bulk SMS gateway</strong> solutions, and <strong>bulk SMS API</strong> platforms. Businesses can easily send <strong>bulk promotional SMS</strong>, <strong>transactional SMS</strong>, and marketing SMS campaigns using reliable SMS platforms listed on our website.</p>
-                    
-                    <p>Our mission is to create a complete hub for <strong>temporary email services</strong>, <strong>disposable email generators</strong>, <strong>online SMS receivers</strong>, and <strong>bulk SMS marketing tools</strong>. Whether you need a <strong>temporary email address for privacy</strong>, a <strong>disposable email for testing websites</strong>, an <strong>online SMS receiver for OTP verification</strong>, or a <strong>bulk SMS platform for marketing</strong>, our website helps you find the right solution quickly.</p>
-                    
-                    <p>If you are looking for <strong>free temp mail</strong>, <strong>temporary email address generator</strong>, <strong>anonymous email services</strong>, <strong>receive SMS online free</strong>, <strong>virtual phone number for SMS verification</strong>, or <strong>bulk SMS marketing tools</strong>, our platform brings all these services together in one convenient place.</p>
-                    
-                    <p><strong>Start using our free temp mail service, disposable email generator, and receive SMS online platform today and enjoy secure, anonymous, and spam-free communication.</strong></p>
+                <div class="description-section">
+                    <h2>📖 About Merge Temp Mail</h2>
+                    <p><strong>Merge Temp Mail</strong> is your complete Temporary Email Dashboard that brings all popular services to one place. Protect your email privacy, avoid spam, and solve CAPTCHAs easily!</p>
+                    <h3 style="margin-top: 25px; margin-bottom: 15px; font-size: 18px; color: var(--text-main);">✨ Key Features:</h3>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">🛡️</div>
+                            <div class="feature-text"><strong>Privacy</strong> - Keep your email safe and private</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🚫</div>
+                            <div class="feature-text"><strong>Spam Block</strong> - Avoid unwanted emails</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚡</div>
+                            <div class="feature-text"><strong>Instant</strong> - Create temporary emails instantly</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🆓</div>
+                            <div class="feature-text"><strong>Free</strong> - 100% completely free to use</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔄</div>
+                            <div class="feature-text"><strong>Multiple</strong> - 20+ Services available</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📱</div>
+                            <div class="feature-text"><strong>Responsive</strong> - Works on all devices</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -615,10 +1157,10 @@
                     <div class="footer-divider"></div>
                     <p style="margin-bottom: 15px;">This website brings popular Temp Mail services to one platform. We are not affiliated with any service.</p>
                     <div class="footer-links">
-                        <a onclick="showInfo('Privacy Policy', 'Your privacy is our priority. We do not store any personal data or emails on our servers. All generated temporary emails and SMS are automatically deleted after a short period. Please do not use this service for illegal activities.')">🔒 Privacy</a> 
-                        <a onclick="showInfo('Terms of Service', 'By using this website, you agree not to use the generated emails or numbers for any unlawful, abusive, or spam-related purposes. We are not responsible for any lost data or blocked accounts.')">📋 Terms</a> 
-                        <a onclick="showInfo('Contact Us', 'Need help or want to report an issue? \n\nEmail us at: support@mergmail.com')">📧 Contact</a> 
-                        <a href="#about-us-section" onclick="scrollToAbout(event)">ℹ️ About</a>
+                        <a href="#" onclick="showInfo('Privacy', 'We do not store any of your information.')">🔒 Privacy</a> 
+                        <a href="#" onclick="showInfo('Terms', 'Use this site only for legal purposes.')">📋 Terms</a> 
+                        <a href="#" onclick="showInfo('Contact', 'support@mergmail.com')">📧 Contact</a> 
+                        <a href="#" onclick="showInfo('About', 'Version 10.12 Enhanced - Pop/Banner Edition')">ℹ️ About</a>
                     </div>
                 </div>
             </footer>
@@ -697,38 +1239,11 @@
     </div>
 
     <script>
-        // --- MISSING ALERT FUNCTION RESTORED ---
-        function showInfo(title, message) {
-            alert(title + " \n\n" + message);
-        }
-
-        // --- SMOOTH SCROLL FUNCTION FOR "ABOUT" LINK ---
-        function scrollToAbout(e) {
-            e.preventDefault();
-            document.getElementById('about-us-section').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // --- CLICK SOUND INTEGRATION ---
-        const clickSound = new Audio('https://www.soundjay.com/buttons/sounds/button-16.mp3');
-        clickSound.volume = 0.2;
-
-        function playClick() {
-            clickSound.currentTime = 0;
-            clickSound.play().catch(e => console.log("Sound interaction required"));
-        }
-
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('button') || e.target.closest('.card') || e.target.closest('a')) {
-                playClick();
-            }
-        });
-
         // DOMAIN SECURITY
         document.addEventListener('DOMContentLoaded', function() {
-            const myDomain = "mergetempmail.qzz.io";
-            const currentDomain = window.location.hostname;
-            if(currentDomain !== myDomain && currentDomain !== "localhost" && !currentDomain.includes("vercel.app") && currentDomain !== "") {
-                window.location.href = "https://" + myDomain;
+            const myDomain = window.location.hostname;
+            if(myDomain === "") {
+                console.log("Local testing mode enabled");
             }
         });
 
@@ -824,18 +1339,12 @@
                     const tokenData = await loginRes.json();
                     if (tokenData.token) {
                         currentToken = tokenData.token;
-                        localStorage.setItem('mailtm_account', JSON.stringify({ 
-                            email, 
-                            password, 
-                            id: currentAccountId,
-                            token: currentToken
-                        }));
                         startAutoFetchMessages();
                     }
                 }
             } catch (error) {
                 console.error('Error:', error);
-                currentEmailDisplay.textContent = 'Error creating email';
+                currentEmailDisplay.textContent = 'Error connecting to API';
             }
         }
 
@@ -968,5 +1477,6 @@
     </script>
     
     <script type='text/javascript' src='https://pl28898452.effectivegatecpm.com/a0/7e/d2/a07ed2c8c7869a25f82bbe9ee3ce8f6e.js'></script>
+
 </body>
-</html>
+    </html>
